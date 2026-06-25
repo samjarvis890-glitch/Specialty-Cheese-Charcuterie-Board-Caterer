@@ -66,10 +66,10 @@
         </div>
 
         <!-- Auth Card -->
-        <div class="bg-white dark:bg-gray-900 rounded-[2rem] shadow-2xl w-full max-w-[620px] p-6 lg:py-6 lg:px-8 relative z-10 border border-gray-100 dark:border-gray-800 my-auto">
+        <div class="bg-white dark:bg-gray-900 rounded-[2rem] shadow-2xl w-full max-w-[620px] p-6 md:p-8 lg:p-10 relative z-10 border border-gray-100 dark:border-gray-800 my-auto">
             
             <!-- Logo -->
-            <div class="text-center mb-4 lg:mb-3">
+            <div class="text-center mb-5 lg:mb-4">
                 <a href="index.html" class="inline-flex items-center gap-3 text-2xl font-serif font-bold text-primary">
                     <i class="fa-solid fa-cheese text-3xl"></i>
                     <span class="tracking-widest uppercase">L'Artisan</span>
@@ -77,33 +77,33 @@
             </div>
 
             <!-- Welcome Text -->
-            <div class="text-center mb-4 lg:mb-3">
+            <div class="text-center mb-5 lg:mb-4">
                 <h2 class="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-2">Create Account</h2>
-                <p class="text-gray-500 dark:text-gray-400 text-sm">Join Clay & Kiln today to book workshops, track kiln firing & earn points</p>
+                
             </div>
 
             <!-- Form -->
             <form action="#" method="POST" class="space-y-4 lg:space-y-3">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4 lg:gap-y-2.5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4 lg:gap-y-3">
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 lg:mb-1">First Name</label>
-                        <input type="text" class="w-full px-4 py-3 lg:py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:text-white transition-colors" placeholder="Enter your first name" required>
+                        <input type="text" class="w-full px-4 py-3 lg:py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:text-white transition-colors" placeholder="Enter your first name" required>
                     </div>
 
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 lg:mb-1">Last Name</label>
-                        <input type="text" class="w-full px-4 py-3 lg:py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:text-white transition-colors" placeholder="Enter your last name" required>
+                        <input type="text" class="w-full px-4 py-3 lg:py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:text-white transition-colors" placeholder="Enter your last name" required>
                     </div>
 
                     <div class="md:col-span-2">
                         <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 lg:mb-1">Email Address</label>
-                        <input type="email" class="w-full px-4 py-3 lg:py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:text-white transition-colors" placeholder="e.g. secure@example.com" required>
+                        <input type="email" class="w-full px-4 py-3 lg:py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:text-white transition-colors" placeholder="e.g. secure@example.com" required>
                     </div>
 
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 lg:mb-1">Password</label>
                         <div class="relative">
-                            <input type="password" id="password" class="w-full px-4 py-3 lg:py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:text-white transition-colors pr-12" placeholder="Create a password" required>
+                            <input type="password" id="password" class="w-full px-4 py-3 lg:py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:text-white transition-colors pr-12" placeholder="Create a password" required>
                             <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none" onclick="togglePassword('password')">
                                 <i class="fa-regular fa-eye" id="password-eye"></i>
                             </button>
@@ -113,7 +113,7 @@
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 lg:mb-1">Confirm Password</label>
                         <div class="relative">
-                            <input type="password" id="confirm-password" class="w-full px-4 py-3 lg:py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:text-white transition-colors pr-12" placeholder="Repeat your password" required>
+                            <input type="password" id="confirm-password" class="w-full px-4 py-3 lg:py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:text-white transition-colors pr-12" placeholder="Repeat your password" required>
                             <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none" onclick="togglePassword('confirm-password')">
                                 <i class="fa-regular fa-eye" id="confirm-password-eye"></i>
                             </button>
@@ -128,21 +128,21 @@
                     </label>
                 </div>
 
-                <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-4 rounded-xl transition-colors shadow-lg shadow-primary/30 flex items-center justify-center gap-2 mt-3 lg:mt-2">
+                <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-4 rounded-xl transition-colors shadow-lg shadow-primary/30 flex items-center justify-center gap-2 mt-3.5 lg:mt-2.5">
                     <i class="fa-solid fa-lock text-sm"></i>
                     Register Account
                 </button>
             </form>
 
             <!-- Divider -->
-            <div class="flex items-center my-6 lg:my-3.5">
+            <div class="flex items-center my-5 lg:my-4">
                 <div class="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
                 <span class="px-4 text-xs font-semibold text-gray-400 dark:text-gray-500 tracking-wider uppercase">Or Sign Up With</span>
                 <div class="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
             </div>
 
             <!-- Social Buttons -->
-            <div class="flex justify-center gap-4 mb-6 lg:mb-3.5">
+            <div class="flex justify-center gap-4 mb-5 lg:mb-4">
                 <button class="w-11 h-11 flex items-center justify-center rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors shadow-sm hover:shadow">
                     <i class="fa-brands fa-google text-lg"></i>
                 </button>
