@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found | L'Artisan</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%232563EB'><path d='M512 240.2l0 15.8L0 256c0-20 10-38.7 26.6-49.8L274.9 40.7c8.6-5.7 18.6-8.7 28.9-8.7C418.8 32 512 125.2 512 240.2zm0 47.8l0 128c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 288l512 0z'/></svg>"><path d='M512 240.2l0 15.8L0 256c0-20 10-38.7 26.6-49.8L274.9 40.7c8.6-5.7 18.6-8.7 28.9-8.7C418.8 32 512 125.2 512 240.2zm0 47.8l0 128c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 288l512 0z'/></svg>">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB',
+                            dark: '#1D4ED8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+        }
+        .dark .bg-grid {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white transition-colors duration-300">
+    <div class="min-h-screen flex flex-col justify-center items-center relative p-4 lg:p-8">
+        <!-- Grid Background -->
+        <div class="absolute inset-0 z-0 bg-grid pointer-events-none"></div>
+
+        <!-- Top Right Controls -->
+        <div class="absolute top-4 right-4 md:top-8 md:right-8 z-20 flex gap-3">
+            <button id="rtl-toggle" class="w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-sm text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors border border-gray-100 dark:border-gray-700">
+                <i class="fa-solid fa-right-left"></i>
+            </button>
+            <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-sm text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors border border-gray-100 dark:border-gray-700">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+
+        <!-- Auth Card -->
+        <div class="bg-white dark:bg-gray-900 rounded-[2rem] shadow-2xl w-full max-w-[420px] p-8 md:p-10 relative z-10 border border-gray-100 dark:border-gray-800 text-center">
+            
+            <!-- Logo -->
+            <div class="mb-10">
+                <a href="index.html" class="inline-flex items-center gap-3 text-2xl font-serif font-bold text-primary">
+                    <i class="fa-solid fa-cheese text-3xl"></i>
+                    <span class="tracking-widest uppercase">L'Artisan</span>
+                </a>
+            </div>
+
+            <!-- Error Content -->
+            <div class="mb-8">
+                <h1 class="text-8xl font-bold text-gray-900 dark:text-white mb-2">404</h1>
+                <h2 class="text-2xl font-serif font-bold text-gray-800 dark:text-gray-200 mb-4">Page Not Found</h2>
+                <p class="text-gray-600 dark:text-gray-400">Oops! The page you are looking for doesn't exist, has been moved, or is temporarily unavailable.</p>
+            </div>
+
+            <!-- Back to Home -->
+            <a href="index.html" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 px-4 rounded-xl transition-colors shadow-lg shadow-primary/30 flex items-center justify-center gap-2 mt-4 inline-flex">
+                <i class="fa-solid fa-house text-sm"></i>
+                Back to Home
+            </a>
+            
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

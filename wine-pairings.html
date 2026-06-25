@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Pairings | L'Artisan | Specialty Cheese & Charcuterie</title>
+    <meta name="description" content="Discover the perfect wine to accompany your luxury grazing boards. Our expert cheese and wine pairing matrix and seasonal recommendations.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%232563EB'><path d='M512 240.2l0 15.8L0 256c0-20 10-38.7 26.6-49.8L274.9 40.7c8.6-5.7 18.6-8.7 28.9-8.7C418.8 32 512 125.2 512 240.2zm0 47.8l0 128c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 288l512 0z'/></svg>">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB',
+                            dark: '#1D4ED8'
+                        },
+                        wine: {
+                            red: '#722F37',
+                            white: '#F8E8A6',
+                            rose: '#F4C4D0',
+                            sparkling: '#F1E8D9'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        /* Unique CSS for this page's diagonal cut */
+        .diagonal-hero {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        .dark .diagonal-hero {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+    </style>
+</head>
+<body class="antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-serif font-bold text-primary">
+                        <i class="fa-solid fa-cheese text-primary"></i>
+                        <span>L'Artisan</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden xl:flex space-x-4 xl:space-x-4 2xl:space-x-6 rtl:space-x-reverse h-full whitespace-nowrap text-sm xl:text-sm 2xl:text-base">
+                    <div class="relative group h-full flex items-center">
+                        <button class="text-gray-700 dark:text-white group-hover:text-primary dark:group-hover:text-primary font-medium flex items-center transition-colors">
+                            Home <i class="fa-solid fa-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:-rotate-180"></i>
+                        </button>
+                        
+                        <!-- Dropdown Wrapper -->
+                        <div class="absolute left-0 top-full z-50 hidden group-hover:block">
+                            <!-- Inner Dropdown -->
+                            <div class="mt-2 w-48 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800">
+                                <a href="index.html" class="group/item block border-b border-gray-100 px-4 py-2 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700">
+                                    <div class="font-semibold text-gray-900 dark:text-white group-hover/item:text-primary transition-colors">Home 1</div>
+                                </a>
+                                <a href="home2.html" class="group/item block px-4 py-2 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700">
+                                    <div class="font-semibold text-gray-900 dark:text-white group-hover/item:text-primary transition-colors">Home 2</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="about.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">About</a>
+                    <a href="board-builder.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Board Builder</a>
+                    <a href="catering.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Catering</a>
+                    <a href="wine-pairings.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Wine Pairings</a>
+                    <a href="gallery.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Gallery</a>
+                    <a href="pricing.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Pricing</a>
+                    <a href="blog.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Blog</a>
+                    <a href="contact.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Contact</a>
+                </nav>
+                
+                <!-- Desktop Icons -->
+                <div class="hidden xl:flex items-center space-x-2 xl:space-x-4 rtl:space-x-reverse">
+                    <button id="theme-toggle" class="text-gray-500 dark:text-white hover:text-primary dark:hover:text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded-full transition-colors" aria-label="Toggle Dark Mode">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle" class="text-gray-500 dark:text-white hover:text-primary dark:hover:text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded-full transition-colors" title="Toggle RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                    <a href="login.html" class="btn-primary px-5 py-2 text-sm rounded-md shadow-sm ml-2">
+                        <i class="fa-regular fa-user mr-2"></i> Login
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="xl:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 dark:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white dark:bg-gray-900 z-[60] transform translate-x-full transition-transform duration-300 xl:hidden overflow-y-auto">
+        <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
+            <a href="index.html" class="flex items-center gap-2 text-xl font-serif font-bold text-primary">
+                <i class="fa-solid fa-cheese text-primary"></i> L'Artisan
+            </a>
+            <button id="close-menu-button" class="text-gray-700 dark:text-white">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+        </div>
+        <div class="p-4 space-y-4">
+            <div>
+                <button class="mobile-dropdown-toggle flex justify-between w-full text-left text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800" data-target="mobile-home-menu">
+                    Home <i class="fa-solid fa-chevron-down transition-transform"></i>
+                </button>
+                <div id="mobile-home-menu" class="hidden pl-4 py-2 space-y-2">
+                    <a href="index.html" class="block text-gray-600 dark:text-white hover:text-primary transition-colors">Home 1</a>
+                    <a href="home2.html" class="block text-gray-600 dark:text-white hover:text-primary transition-colors">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">About</a>
+            <a href="board-builder.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Board Builder</a>
+            <a href="catering.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Catering</a>
+            <a href="wine-pairings.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Wine Pairings</a>
+            <a href="gallery.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Gallery</a>
+            <a href="pricing.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Pricing</a>
+            <a href="blog.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Blog</a>
+            <a href="contact.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Contact</a>
+            
+            <div class="flex items-center justify-between border-t border-gray-100 dark:border-gray-800 pt-4 mt-2">
+                <span class="text-gray-700 dark:text-white font-medium">Preferences</span>
+                <div class="flex gap-2">
+                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-white p-2 bg-gray-50 dark:bg-gray-800 rounded-full hover:text-primary">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle-mobile" class="text-gray-500 dark:text-white p-2 bg-gray-50 dark:bg-gray-800 rounded-full hover:text-primary" title="Toggle RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="flex gap-4 pt-4">
+                <a href="login.html" class="btn-primary w-full text-center"><i class="fa-regular fa-user mr-2"></i> Login</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        
+        <!-- Hero Section (Unique Layout: Diagonal Split) -->
+        <section class="relative bg-gray-900 dark:bg-black text-white overflow-hidden diagonal-hero pb-24 lg:pb-48">
+            <div class="absolute right-0 top-0 w-full lg:w-2/3 h-full opacity-40">
+                <img src="assets/images/wine-pairings/hero.webp" alt="Wine and Cheese" loading="lazy" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent"></div>
+            </div>
+            <div class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24 relative z-10 pt-24 lg:pt-32">
+                <div class="max-w-xl">
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block"><i class="fa-solid fa-wine-glass mr-2"></i> Elevate the Experience</span>
+                    <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">
+                        Perfect<br>Pairings.
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 font-light mb-10 border-l-2 border-primary pl-4">
+                        Unlock the intricate symphony of flavors. Discover how our master curators pair artisanal cheeses and cured meats with world-class wines.
+                    </p>
+                    <a href="#matrix" class="btn-primary text-lg px-8 py-3 rounded-full shadow-lg hover:shadow-primary/50 transition-shadow">Explore the Matrix</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cheese & Wine Matrix (Unique Layout: Interactive Grid / Periodic Table style) -->
+        <section id="matrix" class="section-padding -mt-20 lg:-mt-32 relative z-20">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-800 p-8 md:p-12">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-4">Cheese & Wine Matrix</h2>
+                        <p class="text-gray-600 dark:text-gray-400">Match the texture and intensity of your cheese with the perfect varietal.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Fresh / Soft -->
+                        <div class="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden hover:border-wine-white transition-colors group">
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center group-hover:bg-wine-white/10 transition-colors">
+                                <h3 class="font-bold text-xl text-gray-900 dark:text-white font-serif">Fresh & Soft</h3>
+                                <i class="fa-solid fa-cheese text-wine-white text-2xl"></i>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Goat Cheese, Mozzarella, Ricotta</p>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-2 text-gray-700 dark:text-gray-300 text-sm font-medium">
+                                        <div class="w-3 h-3 rounded-full bg-wine-white"></div> Sauvignon Blanc
+                                    </div>
+                                    <div class="flex items-center gap-2 text-gray-700 dark:text-gray-300 text-sm font-medium">
+                                        <div class="w-3 h-3 rounded-full bg-wine-rose"></div> Dry Rosé
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloomy Rind -->
+                        <div class="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden hover:border-wine-sparkling transition-colors group">
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center group-hover:bg-wine-sparkling/10 transition-colors">
+                                <h3 class="font-bold text-xl text-gray-900 dark:text-white font-serif">Bloomy Rind</h3>
+                                <i class="fa-solid fa-cloud text-gray-300 text-2xl"></i>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Brie, Camembert, Robiola</p>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-2 text-gray-700 dark:text-gray-300 text-sm font-medium">
+                                        <div class="w-3 h-3 rounded-full bg-wine-sparkling"></div> Champagne
+                                    </div>
+                                    <div class="flex items-center gap-2 text-gray-700 dark:text-gray-300 text-sm font-medium">
+                                        <div class="w-3 h-3 rounded-full bg-wine-white"></div> Chardonnay (Unoaked)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Firm / Aged -->
+                        <div class="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden hover:border-wine-red transition-colors group">
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center group-hover:bg-wine-red/10 transition-colors">
+                                <h3 class="font-bold text-xl text-gray-900 dark:text-white font-serif">Firm & Aged</h3>
+                                <i class="fa-solid fa-cubes-stacked text-primary text-2xl"></i>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Aged Cheddar, Gruyère, Manchego</p>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-2 text-gray-700 dark:text-gray-300 text-sm font-medium">
+                                        <div class="w-3 h-3 rounded-full bg-wine-red"></div> Cabernet Sauvignon
+                                    </div>
+                                    <div class="flex items-center gap-2 text-gray-700 dark:text-gray-300 text-sm font-medium">
+                                        <div class="w-3 h-3 rounded-full bg-wine-red"></div> Syrah / Shiraz
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blue / Pungent -->
+                        <div class="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden hover:border-primary transition-colors group">
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center group-hover:bg-primary/10 transition-colors">
+                                <h3 class="font-bold text-xl text-gray-900 dark:text-white font-serif">Blue & Pungent</h3>
+                                <i class="fa-solid fa-droplet text-blue-400 text-2xl"></i>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Roquefort, Gorgonzola, Stilton</p>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-2 text-gray-700 dark:text-gray-300 text-sm font-medium">
+                                        <div class="w-3 h-3 rounded-full bg-primary"></div> Port / Sweet Dessert Wine
+                                    </div>
+                                    <div class="flex items-center gap-2 text-gray-700 dark:text-gray-300 text-sm font-medium">
+                                        <div class="w-3 h-3 rounded-full bg-wine-white"></div> Riesling (Sweet)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meat & Wine Pairings (Unique Layout: Offset Image & Floating Text) -->
+        <section class="section-padding bg-gray-50 dark:bg-black relative">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="w-full lg:w-1/2 relative max-w-md mx-auto">
+                        <!-- Background Accent -->
+                        <div class="absolute top-10 -left-10 w-full h-full border-2 border-wine-red/30 rounded-3xl hidden md:block"></div>
+                        <img src="assets/images/wine-pairings/meat_pairings.webp" alt="Meat and Wine" loading="lazy" class="w-full h-auto object-cover rounded-3xl shadow-2xl relative z-10">
+                    </div>
+                    
+                    <div class="w-full lg:w-1/2">
+                        <span class="text-wine-red font-bold tracking-wider uppercase text-sm mb-3 block flex items-center gap-2"><i class="fa-solid fa-wine-bottle"></i> The Perfect Match</span>
+                        <h2 class="text-3xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-8">Meat & Wine Pairings</h2>
+                        
+                        <div class="space-y-8">
+                            <div class="relative pl-8 border-l-2 border-gray-200 dark:border-gray-800 hover:border-wine-red transition-colors">
+                                <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-wine-red"></div>
+                                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Prosciutto & Melon</h4>
+                                <p class="text-gray-600 dark:text-gray-400">The delicate, salty sweetness of Prosciutto di Parma pairs beautifully with light, crisp bubbles. <strong class="text-gray-800 dark:text-gray-200">Pair with: Prosecco or Dry Rosé.</strong></p>
+                            </div>
+                            
+                            <div class="relative pl-8 border-l-2 border-gray-200 dark:border-gray-800 hover:border-wine-red transition-colors">
+                                <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-wine-red"></div>
+                                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Spicy Salami & Chorizo</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Bold, spicy meats need a wine that can stand up to the heat without clashing. <strong class="text-gray-800 dark:text-gray-200">Pair with: Zinfandel, Malbec, or Grenache.</strong></p>
+                            </div>
+                            
+                            <div class="relative pl-8 border-l-2 border-gray-200 dark:border-gray-800 hover:border-wine-red transition-colors">
+                                <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-wine-red"></div>
+                                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Rich Pâté & Terrines</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Earthy, rich liver mousses cut perfectly against high acidity or complement deep, robust flavors. <strong class="text-gray-800 dark:text-gray-200">Pair with: Pinot Noir or Chardonnay.</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seasonal Pairings (Unique Layout: 2x2 Grid with image backgrounds) -->
+        <section class="section-padding bg-white dark:bg-gray-950">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-6">Seasonal Pairings</h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg">Curated selections that align with the climate and seasonal harvests.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Spring -->
+                    <div class="relative group rounded-xl overflow-hidden aspect-[4/5]">
+                        <img src="assets/images/gallery/seasonal/spring-garden.webp" alt="Spring" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-green-900/60 dark:bg-green-950/70 group-hover:bg-green-900/40 transition-colors duration-300"></div>
+                        <div class="absolute inset-x-0 bottom-0 p-6 flex flex-col text-white h-44 justify-start">
+                            <span class="text-xs font-bold uppercase tracking-widest mb-1 text-green-200">Spring</span>
+                            <h3 class="text-xl xl:text-2xl font-serif font-bold mb-2">Spring Awakening</h3>
+                            <p class="text-sm font-light">Goat Cheese & Berries with Sauvignon Blanc.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Summer -->
+                    <div class="relative group rounded-xl overflow-hidden aspect-[4/5]">
+                        <img src="assets/images/gallery/seasonal/summer-picnic.webp" alt="Summer" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-yellow-900/60 dark:bg-yellow-950/70 group-hover:bg-yellow-900/40 transition-colors duration-300"></div>
+                        <div class="absolute inset-x-0 bottom-0 p-6 flex flex-col text-white h-44 justify-start">
+                            <span class="text-xs font-bold uppercase tracking-widest mb-1 text-yellow-200">Summer</span>
+                            <h3 class="text-xl xl:text-2xl font-serif font-bold mb-2">Summer Sun</h3>
+                            <p class="text-sm font-light">Burrata & Peaches with chilled Provence Rosé.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Autumn -->
+                    <div class="relative group rounded-xl overflow-hidden aspect-[4/5]">
+                        <img src="assets/images/gallery/seasonal/autumn-harvest.webp" alt="Autumn" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-orange-900/60 dark:bg-orange-950/70 group-hover:bg-orange-900/40 transition-colors duration-300"></div>
+                        <div class="absolute inset-x-0 bottom-0 p-6 flex flex-col text-white h-44 justify-start">
+                            <span class="text-xs font-bold uppercase tracking-widest mb-1 text-orange-200">Autumn</span>
+                            <h3 class="text-xl xl:text-2xl font-serif font-bold mb-2">Autumn Harvest</h3>
+                            <p class="text-sm font-light">Aged Gouda & Figs paired with Pinot Noir.</p>
+                        </div>
+                    </div>
+
+                    <!-- Winter -->
+                    <div class="relative group rounded-xl overflow-hidden aspect-[4/5]">
+                        <img src="assets/images/gallery/seasonal/winter-holiday.webp" alt="Winter" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-blue-900/60 dark:bg-blue-950/70 group-hover:bg-blue-900/40 transition-colors duration-300"></div>
+                        <div class="absolute inset-x-0 bottom-0 p-6 flex flex-col text-white h-44 justify-start">
+                            <span class="text-xs font-bold uppercase tracking-widest mb-1 text-blue-200">Winter</span>
+                            <h3 class="text-xl xl:text-2xl font-serif font-bold mb-2">Winter Fireside</h3>
+                            <p class="text-sm font-light">Blue Cheese & Walnuts with Vintage Port.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hosting Recommendations & Expert Picks (Unique Layout: Split Section) -->
+        <section class="section-padding bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                    
+                    <!-- Left: Hosting Recommendations -->
+                    <div class="lg:col-span-7">
+                        <div class="flex items-center gap-3 mb-8">
+                            <i class="fa-solid fa-clipboard-list text-3xl text-primary"></i>
+                            <h2 class="text-3xl font-serif font-bold text-gray-900 dark:text-white">Hosting Recommendations</h2>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-950 rounded-2xl p-8 border border-gray-100 dark:border-gray-800 shadow-sm space-y-6">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                    <i class="fa-solid fa-temperature-half"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white">Mind the Temperature</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Serve white wines between 49-55°F (9-12°C). Red wines should be served slightly cooler than room temp, around 60-65°F (15-18°C). Take your cheese out of the fridge 30 mins before serving.</p>
+                                </div>
+                            </div>
+                            <hr class="border-gray-100 dark:border-gray-800">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                    <i class="fa-solid fa-list-ol"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white">Order of Tasting</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Always start with the lightest cheeses (fresh, goat) and lightest wines (sparkling, crisp whites). Progress to heavier, aged cheeses and robust reds. Finish with blue cheese and sweet dessert wines.</p>
+                                </div>
+                            </div>
+                            <hr class="border-gray-100 dark:border-gray-800">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                    <i class="fa-solid fa-bottle-water"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white">Palate Cleansers</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Provide water crackers, plain crostini, or sparkling water between distinct wine and cheese pairings to refresh the palate. Avoid flavored or strongly seasoned options, as they can interfere with the delicate tasting notes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Expert Picks -->
+                    <div class="lg:col-span-5">
+                        <div class="flex items-center gap-3 mb-8">
+                            <i class="fa-solid fa-star text-3xl text-primary"></i>
+                            <h2 class="text-3xl font-serif font-bold text-gray-900 dark:text-white">Expert Picks</h2>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="relative bg-gray-900 dark:bg-gray-800 p-6 rounded-2xl text-white shadow-xl">
+                                <i class="fa-solid fa-quote-left absolute top-4 right-4 text-4xl text-white/10"></i>
+                                <div class="flex items-center gap-4 mb-4">
+                                    <img src="assets/images/wine-pairings/expert_picks.webp" alt="Sommelier" class="w-16 h-16 rounded-full object-cover border-2 border-primary">
+                                    <div>
+                                        <h5 class="font-bold">Julian Vance</h5>
+                                        <span class="text-xs text-primary uppercase tracking-wider">Lead Sommelier</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm italic font-serif leading-relaxed">
+                                    "If you are serving a highly diverse grazing table and can only pick one wine to please everyone, go with a Dry Rosé or a very crisp Champagne. Their acidity cuts through fat effortlessly and they bridge the gap between light cheeses and heavy meats perfectly."
+                                </p>
+                            </div>
+
+                            <div class="relative bg-gray-900 dark:bg-gray-800 p-6 rounded-2xl text-white shadow-xl">
+                                <i class="fa-solid fa-quote-left absolute top-4 right-4 text-4xl text-white/10"></i>
+                                <div class="flex items-center gap-4 mb-4">
+                                    <img src="assets/images/wine-pairings/expert_picks2.webp" alt="Cheesemonger" class="w-16 h-16 rounded-full object-cover border-2 border-primary">
+                                    <div>
+                                        <h5 class="font-bold">Sophia Laurent</h5>
+                                        <span class="text-xs text-primary uppercase tracking-wider">Artisan Cheesemonger</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm italic font-serif leading-relaxed">
+                                    "When pairing with intense blue cheeses, don't try to fight the pungency with a dry red. Instead, pair it with a sweet Sauternes or a late-harvest Riesling. The contrast between the salty, sharp cheese and the honeyed sweetness of the wine is absolute heaven."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Pairings & Event Type (Unique Layout: Tabs / Interactive display) -->
+        <section class="section-padding bg-white dark:bg-gray-950">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-6">Pairing by Event Type</h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">Curated selections for the most common gathering styles.</p>
+                </div>
+
+                <!-- Custom HTML Tabs using Radio Buttons for pure CSS interactivity -->
+                <div class="w-full max-w-5xl mx-auto">
+                    <!-- Tab Headers (Simulated via flex) -->
+                    <div class="flex flex-wrap justify-center gap-2 mb-8">
+                        <span class="bg-gray-900 dark:bg-white text-white dark:!text-gray-900 px-6 py-2 rounded-full font-bold cursor-default shadow-md text-sm md:text-base">Wedding Receptions</span>
+                        <span class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-6 py-2 rounded-full font-medium cursor-not-allowed border border-gray-200 dark:border-gray-700 text-sm md:text-base">Corporate Galas</span>
+                        <span class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-6 py-2 rounded-full font-medium cursor-not-allowed border border-gray-200 dark:border-gray-700 text-sm md:text-base">Intimate Dinners</span>
+                    </div>
+
+                    <!-- Tab Content (Showing Wedding by default) -->
+                    <div class="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-8 md:p-12 shadow-inner">
+                        <div class="flex flex-col md:flex-row items-center gap-10">
+                            <div class="w-full md:w-1/3">
+                                <img src="assets/images/wine-pairings/event_pairing.webp" alt="Wedding Pairings" class="w-full h-auto rounded-full border-4 border-white dark:border-gray-800 shadow-xl">
+                            </div>
+                            <div class="w-full md:w-2/3">
+                                <h3 class="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-4">The Wedding Reception Spread</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-6">Weddings require universally appealing pairings that accommodate a massive variety of palates while feeling inherently celebratory.</p>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start gap-3">
+                                        <i class="fa-solid fa-check-circle text-primary mt-1"></i>
+                                        <div>
+                                            <strong class="text-gray-900 dark:text-white">Blanc de Blancs Champagne</strong>
+                                            <p class="text-sm text-gray-500 dark:text-gray-400">To pair with triple-crème brie during cocktail hour toasts.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i class="fa-solid fa-check-circle text-primary mt-1"></i>
+                                        <div>
+                                            <strong class="text-gray-900 dark:text-white">Light Bodied Pinot Noir</strong>
+                                            <p class="text-sm text-gray-500 dark:text-gray-400">Versatile enough to pair with both smoked salmon and aged gruyère.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pairing Guide Download (Call to action) -->
+        <section class="section-padding bg-gray-900 relative text-center">
+            <div class="absolute inset-0 z-0 opacity-20">
+                <img src="assets/images/wine-pairings/pairing_guide.webp" alt="Guide Background" class="w-full h-full object-cover">
+            </div>
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24 relative z-10">
+                <i class="fa-solid fa-file-pdf text-5xl text-primary mb-6"></i>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Download Our Complete Pairing Guide</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto mb-8">Get a printable 10-page cheat sheet mapping over 50 specific cheeses and charcuterie items to their perfect wine varietal.</p>
+                <button class="btn-primary px-8 py-3 rounded-md font-bold text-lg hover:bg-white hover:text-gray-900 transition-colors shadow-lg">Download PDF Guide</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-black pt-16 pb-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-4">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-serif font-bold text-primary mb-4">
+                        <i class="fa-solid fa-cheese text-primary"></i> L'Artisan
+                    </a>
+                    <p class="text-primary font-serif italic mb-4">The Art of Grazing.</p>
+                    <p class="text-gray-600 dark:text-white text-sm mb-6">
+                        Crafting luxurious, edible masterpieces that bring people together and turn gatherings into unforgettable celebrations.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-x-twitter text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">About</a></li>
+                        <li><a href="gallery.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Gallery</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Events</a></li>
+                        <li><a href="pricing.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Pricing</a></li>
+                       
+                        <li><a href="contact.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Wedding Catering</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Corporate Events</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Birthday Parties</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Luxury Grazing Tables</a></li>
+                        <li><a href="wine-pairings.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Wine Pairings</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Private Chef Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Newsletter</h4>
+                    <p class="text-gray-600 dark:text-white text-sm mb-4">Subscribe to receive exclusive seasonal menus and pairing tips.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Email Address" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white text-sm rounded-md focus:ring-primary focus:border-primary block w-full p-2.5">
+                        <button type="button" class="btn-primary w-full text-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 dark:text-white">&copy; 2026 L'Artisan Catering. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-sm text-gray-500 dark:text-white hover:text-primary">Privacy Policy</a>
+                    <a href="#" class="text-sm text-gray-500 dark:text-white hover:text-primary">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Main JS -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Scripts for UI interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme & RTL Toggles
+            const mobileThemeToggle = document.getElementById('theme-toggle-mobile');
+            if(mobileThemeToggle) {
+                mobileThemeToggle.addEventListener('click', () => {
+                    document.getElementById('theme-toggle').click();
+                });
+            }
+            const mobileRtlToggle = document.getElementById('rtl-toggle-mobile');
+            if(mobileRtlToggle) {
+                mobileRtlToggle.addEventListener('click', () => {
+                    const rtlBtn = document.getElementById('rtl-toggle');
+                    if (rtlBtn) rtlBtn.click();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

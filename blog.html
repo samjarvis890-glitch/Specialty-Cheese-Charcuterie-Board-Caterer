@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Art of Grazing Blog | L'Artisan</title>
+    <meta name="description" content="Explore charcuterie styling guides, cheese profiles, wine pairing secrets, and luxury hosting tips from our culinary experts.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%232563EB'><path d='M512 240.2l0 15.8L0 256c0-20 10-38.7 26.6-49.8L274.9 40.7c8.6-5.7 18.6-8.7 28.9-8.7C418.8 32 512 125.2 512 240.2zm0 47.8l0 128c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 288l512 0z'/></svg>">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB',
+                            dark: '#1D4ED8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-serif font-bold text-primary">
+                        <i class="fa-solid fa-cheese text-primary"></i>
+                        <span>L'Artisan</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden xl:flex space-x-4 xl:space-x-4 2xl:space-x-6 rtl:space-x-reverse h-full whitespace-nowrap text-sm xl:text-sm 2xl:text-base">
+                    <div class="relative group h-full flex items-center">
+                        <button class="text-gray-700 dark:text-white group-hover:text-primary dark:group-hover:text-primary font-medium flex items-center transition-colors">
+                            Home <i class="fa-solid fa-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:-rotate-180"></i>
+                        </button>
+                        
+                        <!-- Dropdown Wrapper -->
+                        <div class="absolute left-0 top-full z-50 hidden group-hover:block">
+                            <!-- Inner Dropdown -->
+                            <div class="mt-2 w-48 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800">
+                                <a href="index.html" class="group/item block border-b border-gray-100 px-4 py-2 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700">
+                                    <div class="font-semibold text-gray-900 dark:text-white group-hover/item:text-primary transition-colors">Home 1</div>
+                                </a>
+                                <a href="home2.html" class="group/item block px-4 py-2 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700">
+                                    <div class="font-semibold text-gray-900 dark:text-white group-hover/item:text-primary transition-colors">Home 2</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="about.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">About</a>
+                    <a href="board-builder.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Board Builder</a>
+                    <a href="catering.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Catering</a>
+                    <a href="wine-pairings.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Wine Pairings</a>
+                    <a href="gallery.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Gallery</a>
+                    <a href="pricing.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Pricing</a>
+                    <a href="blog.html" class="text-primary dark:text-primary hover:text-primary dark:hover:text-primary font-medium flex items-center h-full font-bold">Blog</a>
+                    <a href="contact.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Contact</a>
+                </nav>
+                
+                <!-- Desktop Icons -->
+                <div class="hidden xl:flex items-center space-x-2 xl:space-x-4 rtl:space-x-reverse">
+                    <button id="theme-toggle" class="text-gray-500 dark:text-white hover:text-primary dark:hover:text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded-full transition-colors" aria-label="Toggle Dark Mode">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle" class="text-gray-500 dark:text-white hover:text-primary dark:hover:text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded-full transition-colors" title="Toggle RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                    <a href="login.html" class="btn-primary px-5 py-2 text-sm rounded-md shadow-sm ml-2">
+                        <i class="fa-regular fa-user mr-2"></i> Login
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="xl:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 dark:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white dark:bg-gray-900 z-[60] transform translate-x-full transition-transform duration-300 xl:hidden overflow-y-auto">
+        <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
+            <a href="index.html" class="flex items-center gap-2 text-xl font-serif font-bold text-primary">
+                <i class="fa-solid fa-cheese text-primary"></i> L'Artisan
+            </a>
+            <button id="close-menu-button" class="text-gray-700 dark:text-white">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+        </div>
+        <div class="p-4 space-y-4">
+            <div>
+                <button class="mobile-dropdown-toggle flex justify-between w-full text-left text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800" data-target="mobile-home-menu">
+                    Home <i class="fa-solid fa-chevron-down transition-transform"></i>
+                </button>
+                <div id="mobile-home-menu" class="hidden pl-4 py-2 space-y-2">
+                    <a href="index.html" class="block text-gray-600 dark:text-white hover:text-primary transition-colors">Home 1</a>
+                    <a href="home2.html" class="block text-gray-600 dark:text-white hover:text-primary transition-colors">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">About</a>
+            <a href="board-builder.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Board Builder</a>
+            <a href="catering.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Catering</a>
+            <a href="wine-pairings.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Wine Pairings</a>
+            <a href="gallery.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Gallery</a>
+            <a href="pricing.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Pricing</a>
+            <a href="blog.html" class="block text-lg font-medium text-primary py-2 border-b border-gray-100 dark:border-gray-800">Blog</a>
+            <a href="contact.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Contact</a>
+            
+            <div class="flex items-center justify-between border-t border-gray-100 dark:border-gray-800 pt-4 mt-2">
+                <span class="text-gray-700 dark:text-white font-medium">Preferences</span>
+                <div class="flex gap-2">
+                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-white p-2 bg-gray-50 dark:bg-gray-800 rounded-full hover:text-primary">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle-mobile" class="text-gray-500 dark:text-white p-2 bg-gray-50 dark:bg-gray-800 rounded-full hover:text-primary" title="Toggle RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="flex gap-4 pt-4">
+                <a href="login.html" class="btn-primary w-full text-center"><i class="fa-regular fa-user mr-2"></i> Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        
+        <!-- Section 1: Hero Section -->
+        <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-gray-950 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="assets/images/blog/blog_hero.webp" alt="Artisan grazing board backdrop" loading="lazy" class="w-full h-full object-cover opacity-65">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-gray-950 z-10"></div>
+            <div class="relative z-20 text-center px-6 max-w-4xl mx-auto flex flex-col items-center">
+                <span class="text-primary font-semibold tracking-widest uppercase text-sm mb-3 block">L'Artisan Editorial</span>
+                <h1 class="text-4xl md:text-6xl font-serif text-white font-bold mb-4 tracking-wide">
+                    The Art of Grazing
+                </h1>
+                <p class="text-lg text-gray-300 font-light max-w-xl mx-auto mb-8">
+                    A culinary notebook filled with charcuterie styling guides, cheese profiles, wine pairing secrets, and luxury hosting tips.
+                </p>
+                <!-- Search Bar -->
+                <div class="w-full max-w-md relative">
+                    <input type="text" id="blog-search" placeholder="Search articles..." class="w-full pl-12 pr-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white/20 transition-all placeholder:text-gray-400">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Featured Article -->
+        <section class="py-16 bg-gray-950 border-b border-gray-900">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <span class="text-primary font-bold tracking-wider uppercase text-xs mb-3 block"><i class="fa-solid fa-star mr-1"></i> Featured Post</span>
+                <div class="bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 shadow-xl">
+                    <div class="grid grid-cols-1 lg:grid-cols-12">
+                        <div class="lg:col-span-7 h-64 lg:h-[450px] relative overflow-hidden">
+                            <img src="assets/images/blog/blog_featured.webp" alt="Wedding Grazing Table Guide" class="w-full h-full object-cover transform hover:scale-[1.02] transition-transform duration-700">
+                        </div>
+                        <div class="lg:col-span-5 p-8 lg:p-12 flex flex-col justify-center text-left">
+                            <div class="flex items-center gap-3 mb-4 text-xs font-semibold text-gray-400">
+                                <span class="bg-primary/20 text-primary px-3 py-1 rounded-full uppercase">Hosting Guides</span>
+                                <span>May 24, 2026</span>
+                            </div>
+                            <h2 class="text-3xl lg:text-4xl font-serif font-bold text-white mb-4 hover:text-primary transition-colors">
+                                <a href="#">Grazing Tables: The Modern Alternative to Buffet Catering</a>
+                            </h2>
+                            <p class="text-gray-400 mb-6 leading-relaxed">
+                                Discover why interactive, multi-dimensional grazing tables are dominating weddings and upscale corporate events. Learn how we structure flavors and layout heights to create breathtaking culinary focal points.
+                            </p>
+                            <div class="flex items-center justify-between border-t border-gray-800 pt-6 mt-auto">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-primary/20 flex-shrink-0 flex items-center justify-center text-primary text-sm font-bold border border-primary/30">JP</div>
+                                    <div>
+                                        <p class="text-sm font-bold text-white">Jean-Pierre</p>
+                                        <p class="text-xs text-gray-400">Executive Chef</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="text-primary hover:text-primary-dark font-semibold text-sm inline-flex items-center gap-1">Read Post <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Articles Grid -->
+        <section class="section-padding bg-white dark:bg-gray-950" id="articles-section">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 mb-12 justify-start border-b border-gray-200 dark:border-gray-900 pb-6">
+                    <button class="category-btn active bg-primary text-white px-5 py-2 rounded-full text-sm font-semibold shadow-sm transition-all" data-category="all">All Stories</button>
+                    <button class="category-btn bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 px-5 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-800 transition-all" data-category="cheese">Cheese Guides</button>
+                    <button class="category-btn bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 px-5 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-800 transition-all" data-category="wine">Wine Pairings</button>
+                    <button class="category-btn bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 px-5 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-800 transition-all" data-category="styling">Styling Tips</button>
+                </div>
+
+                <!-- Articles Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16" id="blog-grid">
+                    
+                    <!-- Post 1 -->
+                    <div class="blog-card group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full text-left" data-categories="cheese">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="assets/images/blog/blog_post_rule_of_four.webp" alt="Artisan Cheese Platter selection" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 mb-3 text-xs font-semibold text-gray-500 dark:text-gray-400">
+                                <span class="text-primary uppercase font-semibold">Cheese Guides</span>
+                                <span>8 Min Read</span>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-gray-900 dark:text-white mb-3 hover:text-primary transition-colors md:min-h-[5.25rem] lg:min-h-[3.5rem] line-clamp-3 lg:line-clamp-2">
+                                <a href="#">The Rule of Four: Structuring a Balanced Cheese Platter</a>
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 flex-grow md:min-h-[7.5rem] lg:min-h-[5rem] line-clamp-6 lg:line-clamp-4">
+                                Creating the perfect cheese selection is an art. Learn how to select one hard, one soft, one aged, and one blue cheese to balance textures and profiles.
+                            </p>
+                            <a href="#" class="text-primary hover:text-primary-dark font-semibold text-sm inline-flex items-center gap-1 mt-auto">Read Guide <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Post 2 -->
+                    <div class="blog-card group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full text-left" data-categories="styling">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="assets/images/blog/blog_post_meat_folds.webp" alt="Salami rose fold styling" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 mb-3 text-xs font-semibold text-gray-500 dark:text-gray-400">
+                                <span class="text-primary uppercase font-semibold">Styling Tips</span>
+                                <span>5 Min Read</span>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-gray-900 dark:text-white mb-3 hover:text-primary transition-colors md:min-h-[5.25rem] lg:min-h-[3.5rem] line-clamp-3 lg:line-clamp-2">
+                                <a href="#">How to Fold Cured Meats: The Salami Rose & Beyond</a>
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 flex-grow md:min-h-[7.5rem] lg:min-h-[5rem] line-clamp-6 lg:line-clamp-4">
+                                Elevate the aesthetics of your board. Master 3 essential meat folding techniques that add volume, structure, and a premium visual appeal to your charcuterie.
+                            </p>
+                            <a href="#" class="text-primary hover:text-primary-dark font-semibold text-sm inline-flex items-center gap-1 mt-auto">Read Guide <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Post 3 -->
+                    <div class="blog-card group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full text-left" data-categories="wine">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="assets/images/blog/blog_post_wine_pairings.webp" alt="Sparkling wine and cheese pairing" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 mb-3 text-xs font-semibold text-gray-500 dark:text-gray-400">
+                                <span class="text-primary uppercase font-semibold">Wine Pairings</span>
+                                <span>6 Min Read</span>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-gray-900 dark:text-white mb-3 hover:text-primary transition-colors md:min-h-[5.25rem] lg:min-h-[3.5rem] line-clamp-3 lg:line-clamp-2">
+                                <a href="#">Demystifying Acid: Why Sparkling Wine Belongs on Your Board</a>
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 flex-grow md:min-h-[7.5rem] lg:min-h-[5rem] line-clamp-6 lg:line-clamp-4">
+                                High-acid sparkling wines cut through rich, high-fat cheeses like Brie and Camembert. Learn the science behind this perfect contrast-based pairing.
+                            </p>
+                            <a href="#" class="text-primary hover:text-primary-dark font-semibold text-sm inline-flex items-center gap-1 mt-auto">Read Guide <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Post 4 -->
+                    <div class="blog-card group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full text-left" data-categories="styling">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="assets/images/blog/blog_post_spring_grazing.webp" alt="Spring garden party board design" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 mb-3 text-xs font-semibold text-gray-500 dark:text-gray-400">
+                                <span class="text-primary uppercase font-semibold">Styling Tips</span>
+                                <span>7 Min Read</span>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-gray-900 dark:text-white mb-3 hover:text-primary transition-colors md:min-h-[5.25rem] lg:min-h-[3.5rem] line-clamp-3 lg:line-clamp-2">
+                                <a href="#">Seasonal Grazing: Designing for a Spring Garden Party</a>
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 flex-grow md:min-h-[7.5rem] lg:min-h-[5rem] line-clamp-6 lg:line-clamp-4">
+                                Incorporating fresh seasonal flowers, herbs, and vibrant berries can transform any standard cheese board into a colorful garden masterpiece.
+                            </p>
+                            <a href="#" class="text-primary hover:text-primary-dark font-semibold text-sm inline-flex items-center gap-1 mt-auto">Read Guide <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Post 5 -->
+                    <div class="blog-card group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full text-left" data-categories="cheese">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="assets/images/blog/blog_post_dietary.webp" alt="Vegan gluten free charcuterie board" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 mb-3 text-xs font-semibold text-gray-500 dark:text-gray-400">
+                                <span class="text-primary uppercase font-semibold">Cheese Guides</span>
+                                <span>6 Min Read</span>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-gray-900 dark:text-white mb-3 hover:text-primary transition-colors md:min-h-[5.25rem] lg:min-h-[3.5rem] line-clamp-3 lg:line-clamp-2">
+                                <a href="#">The Host's Guide to Dietary Accommodations</a>
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 flex-grow md:min-h-[7.5rem] lg:min-h-[5rem] line-clamp-6 lg:line-clamp-4">
+                                Hosting a crowd means accounting for gluten-free, vegan, and nut-free diets. Here is how to build a gorgeous inclusive board that delights everyone.
+                            </p>
+                            <a href="#" class="text-primary hover:text-primary-dark font-semibold text-sm inline-flex items-center gap-1 mt-auto">Read Guide <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Post 6 -->
+                    <div class="blog-card group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full text-left" data-categories="wine">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="assets/images/blog/blog_post_sweet_savory.webp" alt="Honey jams and cheese pairing" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 mb-3 text-xs font-semibold text-gray-500 dark:text-gray-400">
+                                <span class="text-primary uppercase font-semibold">Wine Pairings</span>
+                                <span>5 Min Read</span>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-gray-900 dark:text-white mb-3 hover:text-primary transition-colors md:min-h-[5.25rem] lg:min-h-[3.5rem] line-clamp-3 lg:line-clamp-2">
+                                <a href="#">Sweet & Savory: Pairing Honey, Jams, and Preserves</a>
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 flex-grow md:min-h-[7.5rem] lg:min-h-[5rem] line-clamp-6 lg:line-clamp-4">
+                                The right condiment elevates cheese. Learn why fig jam loves blue cheese and which spicy honeys work best with rich, triple-cream brie.
+                            </p>
+                            <a href="#" class="text-primary hover:text-primary-dark font-semibold text-sm inline-flex items-center gap-1 mt-auto">Read Guide <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex justify-center gap-2 pt-6">
+                    <span class="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center font-bold text-sm">1</span>
+                    <a href="#" class="w-10 h-10 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-600 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-950 flex items-center justify-center font-semibold text-sm border border-gray-200 dark:border-gray-800 transition-colors">2</a>
+                    <a href="#" class="w-10 h-10 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-600 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-950 flex items-center justify-center font-semibold text-sm border border-gray-200 dark:border-gray-800 transition-colors"><i class="fa-solid fa-chevron-right text-xs"></i></a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 4: Interactive Grazing Style Quiz -->
+        <section class="section-padding bg-gray-900 border-t border-b border-gray-800 relative overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-15">
+                <img src="assets/images/blog/blog_quiz.webp" alt="Culinary choices flatlay" class="w-full h-full object-cover">
+            </div>
+            <div class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24 relative z-10 text-center max-w-3xl">
+                <span class="text-primary font-semibold tracking-wider uppercase text-sm mb-2 block">Interactive Experience</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Discover Your Grazing Style</h2>
+                <p class="text-gray-300 mb-8 max-w-xl mx-auto font-light">
+                    Answer 3 quick questions about your hosting preferences to unlock your culinary persona, along with custom board-styling tips.
+                </p>
+
+                <!-- Quiz Container -->
+                <div class="bg-gray-950/80 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-gray-800 shadow-2xl text-left" id="quiz-widget">
+                    <!-- Progress Bar -->
+                    <div class="w-full bg-gray-800 h-1 rounded-full mb-8 overflow-hidden">
+                        <div id="quiz-progress" class="bg-primary h-full transition-all duration-300" style="width: 33%"></div>
+                    </div>
+
+                    <!-- Question 1 -->
+                    <div class="quiz-step" id="step-1">
+                        <span class="text-primary text-xs font-bold uppercase tracking-wider block mb-2">Question 1 of 3</span>
+                        <h3 class="text-xl font-serif text-white font-bold mb-6">What is the vibe of your gathering?</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <button class="quiz-option p-4 rounded-xl border border-gray-800 hover:border-primary text-gray-300 hover:text-white bg-gray-900 hover:bg-gray-900/50 transition-all flex flex-col justify-start text-left h-full w-full" data-answer="classic">
+                                <i class="fa-solid fa-champagne-glasses text-2xl text-primary mb-4"></i>
+                                <h4 class="font-bold text-sm mb-1">Formal & Elegant</h4>
+                                <p class="text-xs text-gray-400">Sipping champagne, fine dinner settings.</p>
+                            </button>
+                            <button class="quiz-option p-4 rounded-xl border border-gray-800 hover:border-primary text-gray-300 hover:text-white bg-gray-900 hover:bg-gray-900/50 transition-all flex flex-col justify-start text-left h-full w-full" data-answer="stylist">
+                                <i class="fa-solid fa-palette text-2xl text-primary mb-4"></i>
+                                <h4 class="font-bold text-sm mb-1">Creative & Artistic</h4>
+                                <p class="text-xs text-gray-400">Trendy aesthetics, photo-ready setups.</p>
+                            </button>
+                            <button class="quiz-option p-4 rounded-xl border border-gray-800 hover:border-primary text-gray-300 hover:text-white bg-gray-900 hover:bg-gray-900/50 transition-all flex flex-col justify-start text-left h-full w-full" data-answer="rustic">
+                                <i class="fa-solid fa-campground text-2xl text-primary mb-4"></i>
+                                <h4 class="font-bold text-sm mb-1">Rustic & Casual</h4>
+                                <p class="text-xs text-gray-400">Backyard dining, cozy fire pit vibes.</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 (Hidden Initially) -->
+                    <div class="quiz-step hidden" id="step-2">
+                        <span class="text-primary text-xs font-bold uppercase tracking-wider block mb-2">Question 2 of 3</span>
+                        <h3 class="text-xl font-serif text-white font-bold mb-6">Select your favorite flavor profile:</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <button class="quiz-option p-4 rounded-xl border border-gray-800 hover:border-primary text-gray-300 hover:text-white bg-gray-900 hover:bg-gray-900/50 transition-all flex flex-col justify-start text-left h-full w-full" data-answer="savory">
+                                <i class="fa-solid fa-cheese text-2xl text-primary mb-4"></i>
+                                <h4 class="font-bold text-sm mb-1">Rich & Savory</h4>
+                                <p class="text-xs text-gray-400">Aged gouda, blue cheese, prosciutto.</p>
+                            </button>
+                            <button class="quiz-option p-4 rounded-xl border border-gray-800 hover:border-primary text-gray-300 hover:text-white bg-gray-900 hover:bg-gray-900/50 transition-all flex flex-col justify-start text-left h-full w-full" data-answer="sweet">
+                                <i class="fa-solid fa-jar text-2xl text-primary mb-4"></i>
+                                <h4 class="font-bold text-sm mb-1">Sweet & Fruity</h4>
+                                <p class="text-xs text-gray-400">Fresh berries, honeycomb, fig preserves.</p>
+                            </button>
+                            <button class="quiz-option p-4 rounded-xl border border-gray-800 hover:border-primary text-gray-300 hover:text-white bg-gray-900 hover:bg-gray-900/50 transition-all flex flex-col justify-start text-left h-full w-full" data-answer="balanced">
+                                <i class="fa-solid fa-scale-balanced text-2xl text-primary mb-4"></i>
+                                <h4 class="font-bold text-sm mb-1">Balanced Contrast</h4>
+                                <p class="text-xs text-gray-400">Salty cheese with sweet honeycomb.</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 (Hidden Initially) -->
+                    <div class="quiz-step hidden" id="step-3">
+                        <span class="text-primary text-xs font-bold uppercase tracking-wider block mb-2">Question 3 of 3</span>
+                        <h3 class="text-xl font-serif text-white font-bold mb-6">Choose your preferred beverage pairing:</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <button class="quiz-option p-4 rounded-xl border border-gray-800 hover:border-primary text-gray-300 hover:text-white bg-gray-900 hover:bg-gray-900/50 transition-all flex flex-col justify-start text-left h-full w-full" data-answer="wine">
+                                <i class="fa-solid fa-wine-glass text-2xl text-primary mb-4"></i>
+                                <h4 class="font-bold text-sm mb-1">Fine Red or White Wine</h4>
+                                <p class="text-xs text-gray-400">Bold Cabernets or crisp Chardonnays.</p>
+                            </button>
+                            <button class="quiz-option p-4 rounded-xl border border-gray-800 hover:border-primary text-gray-300 hover:text-white bg-gray-900 hover:bg-gray-900/50 transition-all flex flex-col justify-start text-left h-full w-full" data-answer="champagne">
+                                <i class="fa-solid fa-wine-bottle text-2xl text-primary mb-4"></i>
+                                <h4 class="font-bold text-sm mb-1">Champagne & Bubbles</h4>
+                                <p class="text-xs text-gray-400">Dry Prosecco or vintage Brut Champagne.</p>
+                            </button>
+                            <button class="quiz-option p-4 rounded-xl border border-gray-800 hover:border-primary text-gray-300 hover:text-white bg-gray-900 hover:bg-gray-900/50 transition-all flex flex-col justify-start text-left h-full w-full" data-answer="mocktail">
+                                <i class="fa-solid fa-glass-water text-2xl text-primary mb-4"></i>
+                                <h4 class="font-bold text-sm mb-1">Artisan Mocktails</h4>
+                                <p class="text-xs text-gray-400">Fresh botanical infusions and sodas.</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Result Panel (Hidden Initially) -->
+                    <div class="quiz-step hidden" id="quiz-result">
+                        <div class="text-center py-6">
+                            <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary text-3xl mx-auto mb-6">
+                                <i id="result-icon" class="fa-solid fa-award"></i>
+                            </div>
+                            <span class="text-primary text-xs font-bold uppercase tracking-wider block mb-2">Your Grazing Persona</span>
+                            <h3 id="result-title" class="text-3xl font-serif text-white font-bold mb-4">The Classic Connoisseur</h3>
+                            <p id="result-desc" class="text-gray-300 text-sm max-w-lg mx-auto mb-8 leading-relaxed">
+                                You appreciate the finer things in life. You favor structured cheese selections, vintage Bordeaux pairings, and elegant grazing tables that serve as symmetrical centerpieces.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                                <a href="board-builder.html" class="btn-primary px-6 py-2.5 rounded-lg text-sm shadow-md"><i class="fa-solid fa-hammer mr-2"></i> Build Your Custom Board</a>
+                                <button id="reset-quiz-btn" class="bg-gray-900 text-gray-300 hover:text-white border border-gray-800 hover:border-gray-700 px-6 py-2.5 rounded-lg text-sm transition-all">Retake Quiz</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Instagram / Social Feed Gallery -->
+        <section class="section-padding bg-white dark:bg-gray-950">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24 text-center">
+                <span class="text-primary font-semibold tracking-wider uppercase text-sm mb-2 block">Social Board</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-3">Curated Kitchen Moments</h2>
+                <p class="text-gray-600 dark:text-gray-400 mb-12 max-w-xl mx-auto font-light">
+                    Follow us on Instagram <a href="https://instagram.com" class="text-primary hover:underline font-semibold">@LArtisanCatering</a> for daily inspiration.
+                </p>
+
+                <!-- Instagram Grid -->
+                <div class="blog-social-grid grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <!-- Insta Post 1 -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-md border border-gray-100 dark:border-gray-900 aspect-square">
+                        <img src="assets/images/blog/blog_insta1.webp" alt="Charcuterie cup close-up" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-white text-center p-4">
+                                <i class="fa-brands fa-instagram text-3xl mb-2"></i>
+                                <p class="text-sm font-semibold">Perfect single-serving cups for corporate events.</p>
+                                <span class="text-xs text-gray-300 mt-2 block"><i class="fa-solid fa-heart mr-1"></i> 2.4k Likes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insta Post 2 -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-md border border-gray-100 dark:border-gray-900 aspect-square">
+                        <img src="assets/images/blog/blog_insta2.webp" alt="Chef slicing cheese wheel" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-white text-center p-4">
+                                <i class="fa-brands fa-instagram text-3xl mb-2"></i>
+                                <p class="text-sm font-semibold">Prepping a 12-month aged organic Cheddar wheel.</p>
+                                <span class="text-xs text-gray-300 mt-2 block"><i class="fa-solid fa-heart mr-1"></i> 3.1k Likes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insta Post 3 -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-md border border-gray-100 dark:border-gray-900 aspect-square">
+                        <img src="assets/images/blog/blog_insta3.webp" alt="Grazing table pomegranate and cheese" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-white text-center p-4">
+                                <i class="fa-brands fa-instagram text-3xl mb-2"></i>
+                                <p class="text-sm font-semibold">Vibrant pomegranate details on our wedding table.</p>
+                                <span class="text-xs text-gray-300 mt-2 block"><i class="fa-solid fa-heart mr-1"></i> 1.8k Likes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Hosting Handbook & Newsletter -->
+        <section class="section-padding bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="bg-white dark:bg-gray-950 rounded-3xl p-8 md:p-12 border border-gray-200 dark:border-gray-800 shadow-xl max-w-5xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
+                        <div class="lg:col-span-4 flex justify-center">
+                            <!-- Ebook 3D Mockup representation -->
+                            <div class="relative w-48 h-64 shadow-2xl rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-500 border border-gray-200 dark:border-gray-800">
+                                <img src="assets/images/blog/blog_guide_mockup.webp" alt="Ultimate Host's Handbook Mockup" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent pointer-events-none"></div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-8">
+                            <span class="text-primary font-bold tracking-wider uppercase text-xs mb-3 block"><i class="fa-solid fa-gift mr-1"></i> Free Culinary Gift</span>
+                            <h2 class="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+                                Download "The Ultimate Host's Charcuterie Handbook"
+                            </h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                                Subscribe to our weekly editorial newsletter and receive a complimentary 45-page styling and pairing guidebook. Learn cheese-cutting techniques, layout patterns, and red/white wine pairing matrices.
+                            </p>
+                            <form class="flex flex-col sm:flex-row gap-3">
+                                <input type="email" placeholder="Enter your email address" class="bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-800 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3 shadow-inner" required>
+                                <button type="submit" class="btn-primary whitespace-nowrap px-6 py-3 text-sm font-semibold rounded-lg shadow-md hover:bg-primary-dark transition-all">Get Free Handbook</button>
+                            </form>
+                            <p class="text-xs text-gray-500 mt-3">We respect your privacy. Unsubscribe at any time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-black pt-16 pb-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-4">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-serif font-bold text-primary mb-4">
+                        <i class="fa-solid fa-cheese text-primary"></i> L'Artisan
+                    </a>
+                    <p class="text-primary font-serif italic mb-4">The Art of Grazing.</p>
+                    <p class="text-gray-600 dark:text-white text-sm mb-6">
+                        Crafting luxurious, edible masterpieces that bring people together and turn gatherings into unforgettable celebrations.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-x-twitter text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">About</a></li>
+                        <li><a href="gallery.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Gallery</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Events</a></li>
+                        <li><a href="pricing.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Pricing</a></li>
+                        
+                        <li><a href="contact.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Wedding Catering</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Corporate Events</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Birthday Parties</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Luxury Grazing Tables</a></li>
+                        <li><a href="wine-pairings.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Wine Pairings</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Private Chef Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Newsletter</h4>
+                    <p class="text-gray-600 dark:text-white text-sm mb-4">Subscribe to receive exclusive seasonal menus and pairing tips.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Email Address" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white text-sm rounded-md focus:ring-primary focus:border-primary block w-full p-2.5">
+                        <button type="button" class="btn-primary w-full text-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 dark:text-white">&copy; 2026 L'Artisan Catering. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-sm text-gray-500 dark:text-white hover:text-primary">Privacy Policy</a>
+                    <a href="#" class="text-sm text-gray-500 dark:text-white hover:text-primary">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Main JS -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Custom Blog JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme sync script
+            const mobileThemeToggle = document.getElementById('theme-toggle-mobile');
+            if(mobileThemeToggle) {
+                mobileThemeToggle.addEventListener('click', () => {
+                    document.getElementById('theme-toggle').click();
+                });
+            }
+            const mobileRtlToggle = document.getElementById('rtl-toggle-mobile');
+            if(mobileRtlToggle) {
+                mobileRtlToggle.addEventListener('click', () => {
+                    const rtlBtn = document.getElementById('rtl-toggle');
+                    if (rtlBtn) rtlBtn.click();
+                });
+            }
+
+            // 1. Search and Filtering for Articles
+            const searchInput = document.getElementById('blog-search');
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+
+            let currentCategory = 'all';
+            let searchQuery = '';
+
+            function filterPosts() {
+                blogCards.forEach(card => {
+                    const categories = card.getAttribute('data-categories').split(' ');
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const desc = card.querySelector('p').textContent.toLowerCase();
+                    
+                    const matchesCategory = currentCategory === 'all' || categories.includes(currentCategory);
+                    const matchesSearch = title.includes(searchQuery) || desc.includes(searchQuery);
+
+                    if (matchesCategory && matchesSearch) {
+                        card.style.display = 'flex';
+                        card.classList.remove('opacity-0', 'scale-95');
+                        card.classList.add('opacity-100', 'scale-100');
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    searchQuery = e.target.value.toLowerCase();
+                    filterPosts();
+                });
+            }
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => {
+                        b.classList.remove('bg-primary', 'text-white', 'active');
+                        b.classList.add('bg-gray-50', 'dark:bg-gray-900', 'text-gray-700', 'dark:text-gray-300');
+                    });
+                    btn.classList.add('bg-primary', 'text-white', 'active');
+                    btn.classList.remove('bg-gray-50', 'dark:bg-gray-900', 'text-gray-700', 'dark:text-gray-300');
+                    currentCategory = btn.getAttribute('data-category');
+                    filterPosts();
+                });
+            });
+
+            // 2. Interactive Grazing Style Quiz
+            const quizWidget = document.getElementById('quiz-widget');
+            const quizSteps = document.querySelectorAll('.quiz-step');
+            const quizProgress = document.getElementById('quiz-progress');
+            const options = document.querySelectorAll('.quiz-option');
+            const quizResult = document.getElementById('quiz-result');
+            const resultTitle = document.getElementById('result-title');
+            const resultDesc = document.getElementById('result-desc');
+            const resultIcon = document.getElementById('result-icon');
+            const resetBtn = document.getElementById('reset-quiz-btn');
+
+            let currentStep = 1;
+            let answers = {
+                vibe: '',
+                flavor: '',
+                beverage: ''
+            };
+
+            const personas = {
+                classic: {
+                    title: "The Classic Connoisseur",
+                    desc: "You appreciate the timeless, elegant things in life. Your ideal style features structured cheddar selections, rich brie, classic prosciutto folds, and high-acid sparkling wine or Cabernet pairings. You love symmetry and sophisticated presentation.",
+                    icon: "fa-champagne-glasses"
+                },
+                stylist: {
+                    title: "The Avant-Garde Stylist",
+                    desc: "You eat with your eyes first! You love dramatic cheese wheels, intricate salami roses, vibrant edible flowers, and fresh seasonal berries. Your grazing boards are artistic focal points that belong in a gallery (or on Instagram).",
+                    icon: "fa-palette"
+                },
+                rustic: {
+                    title: "The Cozy Gathering Host",
+                    desc: "For you, hosting is all about warmth, comfort, and good conversation. Your ideal board is rustic and abundant, loaded with soft goat cheese logs, sweet honeycomb with wooden dippers, raw nuts, seed crackers, and botanic mocktails.",
+                    icon: "fa-campground"
+                }
+            };
+
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    const answer = option.getAttribute('data-answer');
+                    
+                    if (currentStep === 1) {
+                        answers.vibe = answer;
+                        goToStep(2);
+                    } else if (currentStep === 2) {
+                        answers.flavor = answer;
+                        goToStep(3);
+                    } else if (currentStep === 3) {
+                        answers.beverage = answer;
+                        showResult();
+                    }
+                });
+            });
+
+            function goToStep(step) {
+                quizSteps.forEach(s => s.classList.add('hidden'));
+                const nextStepEl = document.getElementById(`step-${step}`);
+                if (nextStepEl) {
+                    nextStepEl.classList.remove('hidden');
+                }
+                currentStep = step;
+                
+                // Update Progress Bar
+                const progressPercentage = (step / 3) * 100;
+                quizProgress.style.width = `${progressPercentage}%`;
+            }
+
+            function showResult() {
+                quizSteps.forEach(s => s.classList.add('hidden'));
+                quizResult.classList.remove('hidden');
+                quizProgress.parentElement.classList.add('hidden'); // Hide progress bar on result
+
+                // Logic to determine persona
+                let selectedPersona = 'classic';
+                if (answers.vibe === 'stylist' || answers.flavor === 'sweet') {
+                    selectedPersona = 'stylist';
+                } else if (answers.vibe === 'rustic' || answers.beverage === 'mocktail') {
+                    selectedPersona = 'rustic';
+                }
+
+                const personaData = personas[selectedPersona];
+                resultTitle.textContent = personaData.title;
+                resultDesc.textContent = personaData.desc;
+                
+                // Update Icon
+                resultIcon.className = `fa-solid ${personaData.icon}`;
+            }
+
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                    answers = { vibe: '', flavor: '', beverage: '' };
+                    quizProgress.parentElement.classList.remove('hidden');
+                    goToStep(1);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

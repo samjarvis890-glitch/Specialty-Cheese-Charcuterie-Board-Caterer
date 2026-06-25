@@ -1,0 +1,183 @@
+===FAVICON===
+<!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23D4AF37'><path d='M512 240.2l0 15.8L0 256c0-20 10-38.7 26.6-49.8L274.9 40.7c8.6-5.7 18.6-8.7 28.9-8.7C418.8 32 512 125.2 512 240.2zm0 47.8l0 128c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 288l512 0z'/></svg>">
+===HEADER===
+<!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-6 md:px-12 lg:px-24">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-serif font-bold text-primary">
+                        <i class="fa-solid fa-cheese text-primary"></i>
+                        <span>L'Artisan</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex space-x-8 rtl:space-x-reverse h-full">
+                    <div class="relative group h-full flex items-center">
+                        <button class="text-gray-700 dark:text-white group-hover:text-primary dark:group-hover:text-primary font-medium flex items-center transition-colors">
+                            Home <i class="fa-solid fa-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:-rotate-180"></i>
+                        </button>
+                        
+                        <!-- Dropdown Wrapper (No translation, no gap) -->
+                        <div class="absolute left-0 top-full z-50 pt-4 opacity-0 pointer-events-none transition-opacity duration-300 group-hover:opacity-100 group-hover:pointer-events-auto">
+                            <!-- Inner Dropdown (Has translation) -->
+                            <div class="w-80 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800 transform translate-y-2 transition-transform duration-300 ease-out group-hover:translate-y-0">
+                                <a href="index.html" class="block border-b border-gray-100 px-5 py-4 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700">
+                                    <div class="font-semibold text-gray-900 dark:text-white">Home 1 – Editorial Experience</div>
+                                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Discover signature grazing tables and luxury event inspiration.</p>
+                                </a>
+                                <a href="board-builder.html" class="block px-5 py-4 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700">
+                                    <div class="font-semibold text-gray-900 dark:text-white">Home 2 – Build Your Board</div>
+                                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Customize your board, explore wine pairings, and reserve your date.</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="about.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">About</a>
+                    <a href="board-builder.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Board Builder</a>
+                    <a href="catering.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Catering</a>
+                    <a href="wine-pairings.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Wine Pairings</a>
+                    <a href="gallery.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Gallery</a>
+                    <a href="pricing.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Pricing</a>
+                    <a href="contact.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Contact</a>
+                </nav>
+                
+                <!-- Desktop Icons -->
+                <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
+                    <button id="theme-toggle" class="text-gray-500 dark:text-white hover:text-primary dark:hover:text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded-full transition-colors" aria-label="Toggle Dark Mode">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle" class="text-gray-500 dark:text-white hover:text-primary dark:hover:text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded-full transition-colors" title="Toggle RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                    <a href="login.html" class="btn-primary px-5 py-2 text-sm rounded-md shadow-sm ml-2">
+                        <i class="fa-regular fa-user mr-2"></i> Login
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 dark:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+===MOBILE===
+<!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white dark:bg-gray-900 z-[60] transform translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto">
+        <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
+            <a href="#" class="flex items-center gap-2 text-xl font-serif font-bold text-primary">
+                <i class="fa-solid fa-cheese text-primary"></i> L'Artisan
+            </a>
+            <button id="close-menu-button" class="text-gray-700 dark:text-white">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+        </div>
+        <div class="p-4 space-y-4">
+            <div>
+                <button class="mobile-dropdown-toggle flex justify-between w-full text-left text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800" data-target="mobile-home-menu">
+                    Home <i class="fa-solid fa-chevron-down transition-transform"></i>
+                </button>
+                <div id="mobile-home-menu" class="hidden pl-4 py-2 space-y-2">
+                    <a href="index.html" class="block text-gray-600 dark:text-white">Home 1 – Editorial Experience</a>
+                    <a href="board-builder.html" class="block text-gray-600 dark:text-white">Home 2 – Build Your Board</a>
+                </div>
+            </div>
+            <a href="about.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">About</a>
+            <a href="board-builder.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Board Builder</a>
+            <a href="catering.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Catering</a>
+            <a href="wine-pairings.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Wine Pairings</a>
+            <a href="gallery.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Gallery</a>
+            <a href="pricing.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Pricing</a>
+            <a href="contact.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Contact</a>
+            
+            <div class="flex items-center justify-between border-t border-gray-100 dark:border-gray-800 pt-4 mt-2">
+                <span class="text-gray-700 dark:text-white font-medium">Preferences</span>
+                <div class="flex gap-2">
+                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-white p-2 bg-gray-50 dark:bg-gray-800 rounded-full hover:text-primary">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle-mobile" class="text-gray-500 dark:text-white p-2 bg-gray-50 dark:bg-gray-800 rounded-full hover:text-primary" title="Toggle RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="flex gap-4 pt-4">
+                <a href="login.html" class="btn-primary w-full text-center"><i class="fa-regular fa-user mr-2"></i> Login</a>
+            </div>
+        </div>
+    </div>
+===FOOTER===
+<!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-black pt-16 pb-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-6 md:px-12 lg:px-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <a href="#" class="flex items-center gap-2 text-2xl font-serif font-bold text-primary mb-4">
+                        <i class="fa-solid fa-cheese text-primary"></i> L'Artisan
+                    </a>
+                    <p class="text-primary font-serif italic mb-4">The Art of Grazing.</p>
+                    <p class="text-gray-600 dark:text-white text-sm mb-6">
+                        Crafting luxurious, edible masterpieces that bring people together and turn gatherings into unforgettable celebrations.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-x-twitter text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">About</a></li>
+                        <li><a href="gallery.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Gallery</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Events</a></li>
+                        <li><a href="pricing.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Pricing</a></li>
+                        <li><a href="contact.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Wedding Catering</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Corporate Events</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Birthday Parties</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Luxury Grazing Tables</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Wine Pairings</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Private Chef Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Newsletter</h4>
+                    <p class="text-gray-600 dark:text-white text-sm mb-4">Subscribe to receive exclusive seasonal menus and pairing tips.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Email Address" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white text-sm rounded-md focus:ring-primary focus:border-primary block w-full p-2.5">
+                        <button type="button" class="btn-primary w-full text-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 dark:text-white">&copy; 2026 L'Artisan Catering. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-sm text-gray-500 dark:text-white hover:text-primary">Privacy Policy</a>
+                    <a href="#" class="text-sm text-gray-500 dark:text-white hover:text-primary">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>

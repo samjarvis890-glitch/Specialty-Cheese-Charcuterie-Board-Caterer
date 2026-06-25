@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Artisan | Specialty Cheese & Charcuterie Board Caterer</title>
+    <meta name="description" content="Luxury handcrafted grazing tables and charcuterie catering experiences for weddings, corporate events, and private gatherings.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%232563EB'><path d='M512 240.2l0 15.8L0 256c0-20 10-38.7 26.6-49.8L274.9 40.7c8.6-5.7 18.6-8.7 28.9-8.7C418.8 32 512 125.2 512 240.2zm0 47.8l0 128c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 288l512 0z'/></svg>">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB',
+                            dark: '#1D4ED8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-serif font-bold text-primary">
+                        <i class="fa-solid fa-cheese text-primary"></i>
+                        <span>L'Artisan</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden xl:flex space-x-4 xl:space-x-4 2xl:space-x-6 rtl:space-x-reverse h-full whitespace-nowrap text-sm xl:text-sm 2xl:text-base">
+                    <div class="relative group h-full flex items-center">
+                        <button class="text-gray-700 dark:text-white group-hover:text-primary dark:group-hover:text-primary font-medium flex items-center transition-colors">
+                            Home <i class="fa-solid fa-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:-rotate-180"></i>
+                        </button>
+                        
+                        <!-- Dropdown Wrapper -->
+                        <div class="absolute left-0 top-full z-50 hidden group-hover:block">
+                            <!-- Inner Dropdown -->
+                            <div class="mt-2 w-48 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800">
+                                <a href="index.html" class="group/item block border-b border-gray-100 px-4 py-2 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700">
+                                    <div class="font-semibold text-gray-900 dark:text-white group-hover/item:text-primary transition-colors">Home 1</div>
+                                </a>
+                                <a href="home2.html" class="group/item block px-4 py-2 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700">
+                                    <div class="font-semibold text-gray-900 dark:text-white group-hover/item:text-primary transition-colors">Home 2</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="about.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">About</a>
+                    <a href="board-builder.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Board Builder</a>
+                    <a href="catering.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Catering</a>
+                    <a href="wine-pairings.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Wine Pairings</a>
+                    <a href="gallery.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Gallery</a>
+                    <a href="pricing.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Pricing</a>
+                    <a href="blog.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Blog</a>
+                    <a href="contact.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Contact</a>
+                </nav>
+                
+                <!-- Desktop Icons -->
+                <div class="hidden xl:flex items-center space-x-2 xl:space-x-4 rtl:space-x-reverse">
+                    <button id="theme-toggle" class="text-gray-500 dark:text-white hover:text-primary dark:hover:text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded-full transition-colors" aria-label="Toggle Dark Mode">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle" class="text-gray-500 dark:text-white hover:text-primary dark:hover:text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded-full transition-colors" title="Toggle RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                    <a href="login.html" class="btn-primary px-5 py-2 text-sm rounded-md shadow-sm ml-2">
+                        <i class="fa-regular fa-user mr-2"></i> Login
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="xl:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 dark:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white dark:bg-gray-900 z-[60] transform translate-x-full transition-transform duration-300 xl:hidden overflow-y-auto">
+        <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
+            <a href="index.html" class="flex items-center gap-2 text-xl font-serif font-bold text-primary">
+                <i class="fa-solid fa-cheese text-primary"></i> L'Artisan
+            </a>
+            <button id="close-menu-button" class="text-gray-700 dark:text-white">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+        </div>
+        <div class="p-4 space-y-4">
+            <div>
+                <button class="mobile-dropdown-toggle flex justify-between w-full text-left text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800" data-target="mobile-home-menu">
+                    Home <i class="fa-solid fa-chevron-down transition-transform"></i>
+                </button>
+                <div id="mobile-home-menu" class="hidden pl-4 py-2 space-y-2">
+                    <a href="index.html" class="block text-gray-600 dark:text-white hover:text-primary transition-colors">Home 1</a>
+                    <a href="home2.html" class="block text-gray-600 dark:text-white hover:text-primary transition-colors">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">About</a>
+            <a href="board-builder.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Board Builder</a>
+            <a href="catering.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Catering</a>
+            <a href="wine-pairings.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Wine Pairings</a>
+            <a href="gallery.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Gallery</a>
+            <a href="pricing.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Pricing</a>
+            <a href="blog.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Blog</a>
+            <a href="contact.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Contact</a>
+            
+            <div class="flex items-center justify-between border-t border-gray-100 dark:border-gray-800 pt-4 mt-2">
+                <span class="text-gray-700 dark:text-white font-medium">Preferences</span>
+                <div class="flex gap-2">
+                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-white p-2 bg-gray-50 dark:bg-gray-800 rounded-full hover:text-primary">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle-mobile" class="text-gray-500 dark:text-white p-2 bg-gray-50 dark:bg-gray-800 rounded-full hover:text-primary" title="Toggle RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="flex gap-4 pt-4">
+                <a href="login.html" class="btn-primary w-full text-center"><i class="fa-regular fa-user mr-2"></i> Login</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        
+        <!-- 1. Hero Section -->
+        <section class="relative h-[90vh] min-h-[600px] flex items-center justify-center bg-gray-900 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="assets/images/home/hero-editorial-grazing-table.webp" alt="Luxury charcuterie grazing table" loading="lazy" class="w-full h-full object-cover opacity-60">
+            </div>
+            <div class="relative z-10 text-center px-6 md:px-12 lg:px-24 max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-serif text-white font-bold mb-6 neon-banner tracking-wide">
+                    Artisan Cheese & Charcuterie Experiences Crafted for Every Celebration
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
+                    Handcrafted grazing tables and luxury catering experiences for weddings, corporate events, private gatherings, and memorable celebrations.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#board-builder" class="btn-primary py-3 px-8 text-lg shadow-lg hover:shadow-xl"><i class="fa-solid fa-hammer mr-2"></i> Build Your Board</a>
+                    <a href="#contact" class="btn-outline border-white text-white hover:bg-white hover:text-gray-900 py-3 px-8 text-lg"><i class="fa-regular fa-calendar-check mr-2"></i> Reserve Your Date</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Featured Catering Experiences -->
+        <section id="catering" class="section-padding bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="w-full lg:w-1/2 text-left max-w-2xl mx-auto">
+                        <span class="text-primary font-semibold tracking-wider uppercase text-sm mb-2 block">Our Specialties</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-6">Featured Catering Experiences</h2>
+                        <p class="text-gray-600 dark:text-white mb-6 leading-relaxed">
+                            Elevate your next event with our visually stunning and palate-pleasing charcuterie arrangements. From intimate gatherings to grand celebrations, we curate premium selections tailored to your occasion.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-700 dark:text-white"><i class="fa-solid fa-check text-primary mr-3"></i> Charcuterie Boards</li>
+                            <li class="flex items-center text-gray-700 dark:text-white"><i class="fa-solid fa-check text-primary mr-3"></i> Grazing Tables</li>
+                            <li class="flex items-center text-gray-700 dark:text-white"><i class="fa-solid fa-check text-primary mr-3"></i> Wedding Catering</li>
+                            <li class="flex items-center text-gray-700 dark:text-white"><i class="fa-solid fa-check text-primary mr-3"></i> Corporate Events & Seasonal Collections</li>
+                        </ul>
+                        <a href="#pricing" class="btn-primary">Explore Catering Services</a>
+                    </div>
+                    <div class="w-full lg:w-1/2 max-w-2xl mx-auto">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Wedding Day -->
+                            <div class="relative group rounded-xl overflow-hidden h-40 sm:h-48 shadow-lg border border-gray-100 dark:border-gray-700">
+                                <img src="assets/images/pricing/wedding.webp" alt="Wedding Day" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+                                    <span class="text-white font-serif font-bold text-lg drop-shadow-lg">Wedding Day</span>
+                                </div>
+                            </div>
+                            <!-- Weekend Brunch -->
+                            <div class="relative group rounded-xl overflow-hidden h-40 sm:h-48 shadow-lg border border-gray-100 dark:border-gray-700">
+                                <img src="assets/images/gallery/signature/brunch-collection.webp" alt="Weekend Brunch" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+                                    <span class="text-white font-serif font-bold text-lg drop-shadow-lg">Weekend Brunch</span>
+                                </div>
+                            </div>
+                            <!-- Corporate Event -->
+                            <div class="relative group rounded-xl overflow-hidden h-40 sm:h-48 shadow-lg border border-gray-100 dark:border-gray-700">
+                                <img src="assets/images/pricing/corporate.webp" alt="Corporate Event" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+                                    <span class="text-white font-serif font-bold text-lg drop-shadow-lg">Corporate Event</span>
+                                </div>
+                            </div>
+                            <!-- Holiday Special -->
+                            <div class="relative group rounded-xl overflow-hidden h-40 sm:h-48 shadow-lg border border-gray-100 dark:border-gray-700">
+                                <img src="assets/images/pricing/winter.webp" alt="Holiday Special" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+                                    <span class="text-white font-serif font-bold text-lg drop-shadow-lg">Holiday Special</span>
+                                </div>
+                            </div>
+                            <!-- Grand Celebration -->
+                            <div class="relative group rounded-xl overflow-hidden h-40 sm:h-48 shadow-lg border border-gray-100 dark:border-gray-700">
+                                <img src="assets/images/gallery/stories/corporate-gala.webp" alt="Grand Celebration" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+                                    <span class="text-white font-serif font-bold text-lg drop-shadow-lg">Grand Celebration</span>
+                                </div>
+                            </div>
+                            <!-- Private Gatherings -->
+                            <div class="relative group rounded-xl overflow-hidden h-40 sm:h-48 shadow-lg border border-gray-100 dark:border-gray-700">
+                                <img src="assets/images/pricing/small_gatherings.webp" alt="Private Gatherings" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+                                    <span class="text-white font-serif font-bold text-lg drop-shadow-lg">Private Gatherings</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Interactive Board Builder Preview -->
+        <section id="board-builder" class="section-padding bg-gray-50 dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 text-center">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <span class="text-primary font-semibold tracking-wider uppercase text-sm mb-2 block">Customize</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-10">Interactive Board Builder Preview</h2>
+                
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-12 max-w-6xl mx-auto">
+                    <div class="w-full lg:w-1/2">
+                        <div class="p-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 text-left">
+                            <h3 class="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-6">Design Your Perfect Spread</h3>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-white mb-2">Event Type</label>
+                                    <select class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-primary focus:border-primary">
+                                        <option>Wedding</option>
+                                        <option>Corporate</option>
+                                        <option>Birthday</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-white mb-2">Guest Count</label>
+                                    <input type="range" class="w-full accent-primary" min="10" max="200">
+                                </div>
+                                <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                                    <span class="text-gray-600 dark:text-white">Estimated Price</span>
+                                    <span class="text-2xl font-bold text-primary">$450</span>
+                                </div>
+                                <button class="btn-primary w-full mt-4">Start Building</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2">
+                        <img src="assets/images/home/interactive-board-builder-preview.webp" alt="Board Builder" loading="lazy" class="w-full rounded-full shadow-2xl border-4 border-white dark:border-gray-800 max-w-sm mx-auto hover:rotate-3 transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Wine Pairing Experience -->
+        <section id="wine-pairings" class="section-padding bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="flex flex-col xl:flex-row items-center gap-12">
+                    <div class="w-full xl:w-5/12 max-w-lg xl:max-w-none mx-auto">
+                        <div class="relative">
+                            <div class="absolute -inset-4 bg-primary/20 transform rotate-3 rounded-lg z-0"></div>
+                            <img src="assets/images/home/wine-pairing-experience.webp" alt="Wine Pairing Experience" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-xl relative z-10 border border-gray-200 dark:border-gray-700">
+                        </div>
+                    </div>
+                    <div class="w-full xl:w-7/12 xl:pl-10 text-left">
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-6">Wine Pairing Experience</h2>
+                        <p class="text-gray-600 dark:text-white mb-8 text-lg">
+                            Discover the perfect harmony of flavors with our expert wine pairing recommendations. Elevate your tasting journey.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 hover:border-primary transition-colors flex flex-col h-full justify-between">
+                                <div>
+                                    <i class="fa-solid fa-wine-glass text-primary text-2xl mb-3 block"></i>
+                                    <h4 class="font-bold text-gray-900 dark:text-white mb-2">Cheese & Wine Matrix</h4>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-white mt-auto">Curated pairings based on robust flavor profiles.</p>
+                            </div>
+                            <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 hover:border-primary transition-colors flex flex-col h-full justify-between">
+                                <div>
+                                    <i class="fa-solid fa-star text-primary text-2xl mb-3 block"></i>
+                                    <h4 class="font-bold text-gray-900 dark:text-white mb-2">Expert Recommendations</h4>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-white mt-auto">Sommelier-selected notes for every board.</p>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <a href="#" class="text-primary font-semibold hover:underline">View Wine Pairings <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Upcoming Events -->
+        <section class="section-padding bg-gray-900 text-white relative overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-40">
+                <img src="assets/images/home/upcoming-catering-events.webp" alt="Upcoming Events" loading="lazy" class="w-full h-full object-cover">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent z-10"></div>
+            
+            <div class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24 relative z-20">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold mb-4">Upcoming Events</h2>
+                    <p class="text-gray-200 max-w-2xl mx-auto">Join us for exclusive showcases and tasting experiences.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+                    <!-- Event Cards -->
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg hover:bg-white/20 transition-all flex flex-col h-full justify-between">
+                        <div>
+                            <div class="text-primary font-bold mb-2">Oct 15</div>
+                            <h4 class="font-serif text-xl font-bold mb-2">Wedding Showcases</h4>
+                        </div>
+                        <p class="text-sm text-gray-200 mt-auto">Preview our luxury setups for your big day.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg hover:bg-white/20 transition-all flex flex-col h-full justify-between">
+                        <div>
+                            <div class="text-primary font-bold mb-2">Nov 02</div>
+                            <h4 class="font-serif text-xl font-bold mb-2">Corporate Tastings</h4>
+                        </div>
+                        <p class="text-sm text-gray-200 mt-auto">Elevate your next company retreat or gala.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg hover:bg-white/20 transition-all flex flex-col h-full justify-between">
+                        <div>
+                            <div class="text-primary font-bold mb-2">Dec 10</div>
+                            <h4 class="font-serif text-xl font-bold mb-2">Holiday Catering</h4>
+                        </div>
+                        <p class="text-sm text-gray-200 mt-auto">Festive boards designed for seasonal cheer.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg flex items-center justify-center h-full">
+                        <a href="#contact" class="btn-primary w-full text-center">RSVP Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Catering Packages -->
+        <section id="pricing" class="section-padding bg-gray-50 dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-primary font-semibold tracking-wider uppercase text-sm mb-2 block">Pricing</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-6">Catering Packages</h2>
+                    <p class="text-gray-600 dark:text-white">Thoughtfully designed packages to suit gatherings of any scale.</p>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row gap-8 items-center">
+                    <div class="w-full lg:w-1/2">
+                        <img src="assets/images/home/luxury-catering-packages.webp" alt="Luxury Packages" loading="lazy" class="w-full max-w-md mx-auto rounded-lg shadow-xl border border-gray-200 dark:border-gray-700">
+                    </div>
+                    <div class="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="card p-6 rounded-xl border-t-4 border-t-primary shadow-sm hover:shadow-md transition-shadow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white mb-2">Intimate</h3>
+                            <p class="text-sm text-gray-500 dark:text-white mb-4">Up to 15 Guests</p>
+                            <p class="text-gray-600 dark:text-white text-sm mb-4">Perfect for small celebrations and cozy get-togethers.</p>
+                            <span class="text-2xl font-bold text-primary">From $250</span>
+                        </div>
+                        <div class="card p-6 rounded-xl border-t-4 border-t-primary shadow-sm hover:shadow-md transition-shadow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white mb-2">Corporate</h3>
+                            <p class="text-sm text-gray-500 dark:text-white mb-4">Up to 50 Guests</p>
+                            <p class="text-gray-600 dark:text-white text-sm mb-4">Impress clients with professional grazing stations.</p>
+                            <span class="text-2xl font-bold text-primary">From $750</span>
+                        </div>
+                        <div class="card p-6 rounded-xl border-t-4 border-t-primary shadow-sm hover:shadow-md transition-shadow">
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white mb-2">Wedding</h3>
+                            <p class="text-sm text-gray-500 dark:text-white mb-4">Up to 150 Guests</p>
+                            <p class="text-gray-600 dark:text-white text-sm mb-4">Elaborate tablescapes that double as decor.</p>
+                            <span class="text-2xl font-bold text-primary">Custom Quote</span>
+                        </div>
+                        <div class="card p-6 rounded-xl bg-primary text-white shadow-md flex flex-col justify-center items-center text-center">
+                            <h3 class="font-serif text-xl font-bold mb-2">Luxury Tier</h3>
+                            <p class="text-sm mb-4 text-white/90">Premium imported selections & caviar.</p>
+                            <a href="#contact" class="btn-outline border-white text-white hover:bg-white hover:text-primary mt-auto">Inquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Testimonials -->
+        <section class="section-padding bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 text-center">
+            <div class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24 max-w-5xl">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-12">Words From Our Clients</h2>
+                
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+                    <img src="assets/images/home/happy-catering-guests.webp" alt="Happy Guests" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity">
+                    
+                    <div class="relative z-10 py-16 px-6 md:py-24 md:px-12 flex items-center justify-center">
+                        <div class="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border border-gray-100 dark:border-gray-700 p-8 md:p-12 rounded-xl max-w-3xl w-full shadow-xl text-center">
+                            <div class="text-primary text-5xl font-serif mb-2 leading-none">"</div>
+                            <p class="text-lg md:text-2xl text-gray-800 dark:text-gray-100 italic mb-8 font-serif leading-relaxed">
+                                The grazing table was the absolute highlight of our wedding! Not only was it visually breathtaking, but the quality of the cheeses and meats was unparalleled. Our guests are still talking about it.
+                            </p>
+                            <div class="flex flex-col items-center">
+                                <h4 class="font-bold text-gray-900 dark:text-white text-lg tracking-wide uppercase mb-1">Sarah & James</h4>
+                                <span class="text-sm font-semibold text-primary uppercase tracking-widest">Wedding Catering</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Gallery Preview -->
+        <section id="gallery" class="section-padding bg-gray-50 dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="text-center mb-16">
+                    <span class="text-primary font-semibold tracking-wider uppercase text-sm mb-2 block">Portfolio</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white">Signature Creations</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2 max-w-2xl mx-auto">Discover the curation, premium ingredients, and exquisite styling that define our iconic grazing arrangements.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- Image Column -->
+                    <div class="lg:col-span-6">
+                        <div class="image-zoom-container rounded-2xl shadow-2xl border-4 border-white dark:border-gray-800 overflow-hidden relative group">
+                            <img src="assets/images/home/gallery-preview-signature-board.webp" alt="Signature Board" loading="lazy" class="w-full h-[450px] object-cover">
+                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <a href="gallery.html" class="btn-primary"><i class="fa-brands fa-image mr-2"></i> View Full Gallery</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Content Column -->
+                    <div class="lg:col-span-6 space-y-8">
+                        <div>
+                            <h3 class="font-serif text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">Crafted to Captivate and Delight</h3>
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                Our Signature Creations are edible masterpieces curated to make your event unforgettable. We meticulously select and style every item, balancing premium flavors, colors, and textures to create a breathtaking culinary centerpiece.
+                            </p>
+                        </div>
+                        
+                        <!-- Curated Features Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
+                                    <i class="fa-solid fa-cheese text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white text-base">Artisanal Cheeses</h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Gourmet imported and local cheeses, from creamy double-brie to sharp aged gouda.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
+                                    <i class="fa-solid fa-drumstick-bite text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white text-base">Cured Charcuterie</h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Premium cured meats, prosciutto di Parma, and masterfully peppered salumi.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
+                                    <i class="fa-solid fa-apple-whole text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white text-base">Gourmet Pairings</h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Organic wild honeycombs, fresh local figs, berries, and gourmet nuts.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
+                                    <i class="fa-solid fa-palette text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white text-base">Artistic Styling</h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Elegant botanical accents, garnishes, and custom themed layouts.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-3 lg:gap-2 xl:gap-4 pt-4 w-full">
+                            <a href="gallery.html" class="btn-primary inline-flex items-center"><i class="fa-solid fa-images mr-2"></i> Explore Full Gallery</a>
+                            <a href="board-builder.html" class="btn-outline inline-flex items-center"><i class="fa-solid fa-sliders mr-2"></i> Custom Board Builder</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Call To Action -->
+        <section id="contact" class="section-padding relative overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 z-0">
+                <img src="assets/images/home/reserve-event-cta.webp" alt="Reserve Event" loading="lazy" class="w-full h-full object-cover">
+            </div>
+            <div class="absolute inset-0 bg-black/60 dark:bg-black/80 z-10"></div>
+            
+            <div class="relative z-20 text-center px-6 md:px-12 lg:px-24 max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Ready to Elevate Your Event?</h2>
+                <p class="text-lg text-gray-200 mb-10">Contact us to request a custom quote or reserve your date for an unforgettable culinary experience.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="board-builder.html" class="btn-primary text-lg"><i class="fa-solid fa-calendar-plus mr-2"></i> Reserve Your Event Date</a>
+                    <a href="contact.html" class="btn-outline border-white text-white hover:bg-white hover:text-gray-900 text-lg">Request a Custom Quote</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-black pt-16 pb-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-4">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-serif font-bold text-primary mb-4">
+                        <i class="fa-solid fa-cheese text-primary"></i> L'Artisan
+                    </a>
+                    <p class="text-primary font-serif italic mb-4">The Art of Grazing.</p>
+                    <p class="text-gray-600 dark:text-white text-sm mb-6">
+                        Crafting luxurious, edible masterpieces that bring people together and turn gatherings into unforgettable celebrations.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-x-twitter text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">About</a></li>
+                        <li><a href="gallery.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Gallery</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Events</a></li>
+                        <li><a href="pricing.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Pricing</a></li>
+                       
+                        <li><a href="contact.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Wedding Catering</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Corporate Events</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Birthday Parties</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Luxury Grazing Tables</a></li>
+                        <li><a href="wine-pairings.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Wine Pairings</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Private Chef Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Newsletter</h4>
+                    <p class="text-gray-600 dark:text-white text-sm mb-4">Subscribe to receive exclusive seasonal menus and pairing tips.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Email Address" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white text-sm rounded-md focus:ring-primary focus:border-primary block w-full p-2.5">
+                        <button type="button" class="btn-primary w-full text-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 dark:text-white">&copy; 2026 L'Artisan Catering. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-sm text-gray-500 dark:text-white hover:text-primary">Privacy Policy</a>
+                    <a href="#" class="text-sm text-gray-500 dark:text-white hover:text-primary">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (Optional, for components if ever needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Main JS -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Script to sync mobile/desktop theme and rtl toggle icons dynamically -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileThemeToggle = document.getElementById('theme-toggle-mobile');
+            if(mobileThemeToggle) {
+                mobileThemeToggle.addEventListener('click', () => {
+                    document.getElementById('theme-toggle').click();
+                });
+            }
+            const mobileRtlToggle = document.getElementById('rtl-toggle-mobile');
+            if(mobileRtlToggle) {
+                mobileRtlToggle.addEventListener('click', () => {
+                    const rtlBtn = document.getElementById('rtl-toggle');
+                    if (rtlBtn) rtlBtn.click();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

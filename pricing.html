@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages & Pricing | L'Artisan | Specialty Cheese & Charcuterie</title>
+    <meta name="description" content="Explore our transparent pricing and package options for luxury charcuterie boards, corporate grazing tables, and wedding catering.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%232563EB'><path d='M512 240.2l0 15.8L0 256c0-20 10-38.7 26.6-49.8L274.9 40.7c8.6-5.7 18.6-8.7 28.9-8.7C418.8 32 512 125.2 512 240.2zm0 47.8l0 128c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 288l512 0z'/></svg>">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB',
+                            dark: '#1D4ED8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        /* Unique Pricing CSS */
+        .pricing-card {
+            max-width: 360px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            width: 100% !important;
+        }
+        .pricing-card:hover .pricing-amount {
+            color: #D4AF37;
+            transform: scale(1.05);
+        }
+        .pricing-amount {
+            transition: all 0.3s ease;
+        }
+        .luxury-bg {
+            background-image: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+        .ticket-shape {
+            mask-image: radial-gradient(circle at 0 50%, transparent 20px, black 21px), radial-gradient(circle at 100% 50%, transparent 20px, black 21px);
+            mask-size: 51% 100%;
+            mask-repeat: no-repeat;
+            mask-position: left, right;
+            -webkit-mask-image: radial-gradient(circle at 0 50%, transparent 20px, black 21px), radial-gradient(circle at 100% 50%, transparent 20px, black 21px);
+            -webkit-mask-size: 51% 100%;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: left, right;
+        }
+    </style>
+</head>
+<body class="antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-serif font-bold text-primary">
+                        <i class="fa-solid fa-cheese text-primary"></i>
+                        <span>L'Artisan</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden xl:flex space-x-4 xl:space-x-4 2xl:space-x-6 rtl:space-x-reverse h-full whitespace-nowrap text-sm xl:text-sm 2xl:text-base">
+                    <div class="relative group h-full flex items-center">
+                        <button class="text-gray-700 dark:text-white group-hover:text-primary dark:group-hover:text-primary font-medium flex items-center transition-colors">
+                            Home <i class="fa-solid fa-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:-rotate-180"></i>
+                        </button>
+                        
+                        <!-- Dropdown Wrapper -->
+                        <div class="absolute left-0 top-full z-50 hidden group-hover:block">
+                            <!-- Inner Dropdown -->
+                            <div class="mt-2 w-48 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800">
+                                <a href="index.html" class="group/item block border-b border-gray-100 px-4 py-2 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700">
+                                    <div class="font-semibold text-gray-900 dark:text-white group-hover/item:text-primary transition-colors">Home 1</div>
+                                </a>
+                                <a href="home2.html" class="group/item block px-4 py-2 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700">
+                                    <div class="font-semibold text-gray-900 dark:text-white group-hover/item:text-primary transition-colors">Home 2</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="about.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">About</a>
+                    <a href="board-builder.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Board Builder</a>
+                    <a href="catering.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Catering</a>
+                    <a href="wine-pairings.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Wine Pairings</a>
+                    <a href="gallery.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Gallery</a>
+                    <a href="pricing.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Pricing</a>
+                    <a href="blog.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Blog</a>
+                    <a href="contact.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Contact</a>
+                </nav>
+                
+                <!-- Desktop Icons -->
+                <div class="hidden xl:flex items-center space-x-2 xl:space-x-4 rtl:space-x-reverse">
+                    <button id="theme-toggle" class="text-gray-500 dark:text-white hover:text-primary dark:hover:text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded-full transition-colors" aria-label="Toggle Dark Mode">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle" class="text-gray-500 dark:text-white hover:text-primary dark:hover:text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded-full transition-colors" title="Toggle RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                    <a href="login.html" class="btn-primary px-5 py-2 text-sm rounded-md shadow-sm ml-2">
+                        <i class="fa-regular fa-user mr-2"></i> Login
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="xl:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 dark:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white dark:bg-gray-900 z-[60] transform translate-x-full transition-transform duration-300 xl:hidden overflow-y-auto">
+        <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
+            <a href="index.html" class="flex items-center gap-2 text-xl font-serif font-bold text-primary">
+                <i class="fa-solid fa-cheese text-primary"></i> L'Artisan
+            </a>
+            <button id="close-menu-button" class="text-gray-700 dark:text-white">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+        </div>
+        <div class="p-4 space-y-4">
+            <div>
+                <button class="mobile-dropdown-toggle flex justify-between w-full text-left text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800" data-target="mobile-home-menu">
+                    Home <i class="fa-solid fa-chevron-down transition-transform"></i>
+                </button>
+                <div id="mobile-home-menu" class="hidden pl-4 py-2 space-y-2">
+                    <a href="index.html" class="block text-gray-600 dark:text-white hover:text-primary transition-colors">Home 1</a>
+                    <a href="home2.html" class="block text-gray-600 dark:text-white hover:text-primary transition-colors">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">About</a>
+            <a href="board-builder.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Board Builder</a>
+            <a href="catering.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Catering</a>
+            <a href="wine-pairings.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Wine Pairings</a>
+            <a href="gallery.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Gallery</a>
+            <a href="pricing.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Pricing</a>
+            <a href="blog.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Blog</a>
+            <a href="contact.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Contact</a>
+            
+            <div class="flex items-center justify-between border-t border-gray-100 dark:border-gray-800 pt-4 mt-2">
+                <span class="text-gray-700 dark:text-white font-medium">Preferences</span>
+                <div class="flex gap-2">
+                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-white p-2 bg-gray-50 dark:bg-gray-800 rounded-full hover:text-primary">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle-mobile" class="text-gray-500 dark:text-white p-2 bg-gray-50 dark:bg-gray-800 rounded-full hover:text-primary" title="Toggle RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="flex gap-4 pt-4">
+                <a href="login.html" class="btn-primary w-full text-center"><i class="fa-regular fa-user mr-2"></i> Login</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        
+        <!-- Hero Section (Unique Layout: Centered Elegant with Image Background) -->
+        <section class="relative py-32 lg:py-48 flex items-center justify-center overflow-hidden text-center">
+            <div class="absolute inset-0 z-0">
+                <img src="assets/images/pricing/hero.webp" alt="Pricing Hero" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-white/70 dark:bg-black/70"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24 relative z-10 max-w-4xl">
+                <span class="text-primary font-bold tracking-widest uppercase text-sm mb-6 block"><i class="fa-solid fa-tag mr-2"></i> Transparent Investment</span>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold text-gray-900 dark:text-white mb-6">Packages & Pricing</h1>
+                <p class="text-xl text-gray-700 dark:text-gray-300 font-light mb-10 leading-relaxed">
+                    Exceptional quality deserves clear expectations. Explore our curated tiers for boards, tables, and full-scale luxury event catering.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
+                    <a href="board-builder.html" class="btn-primary px-8 py-3 rounded-full font-semibold shadow-lg shadow-primary/30 flex items-center gap-2 hover:-translate-y-1 transition-transform">
+                        Build Your Board <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="contact.html" class="px-8 py-3 rounded-full font-semibold border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-all flex items-center gap-2 hover:-translate-y-1">
+                        Request Custom Quote
+                    </a>
+                </div>
+                
+                <div class="mt-12 flex flex-col sm:flex-row justify-center items-start sm:items-center gap-4 sm:gap-6 text-sm text-gray-700 dark:text-gray-300 font-medium w-fit mx-auto">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check-circle text-primary"></i> No Hidden Fees
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check-circle text-primary"></i> Premium Artisanal Ingredients
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check-circle text-primary"></i> Dedicated Event Stylist
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Small Gatherings (Unique Layout: 3-Column Card Hover Elevation) -->
+        <section class="section-padding bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-4">Small Gatherings</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Perfect for intimate dinners, picnics.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="pricing-card bg-white dark:bg-gray-950 rounded-3xl p-8 border border-gray-100 dark:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-300 relative group flex flex-col items-center text-center max-w-sm mx-auto w-full">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl mb-6">
+                            <i class="fa-solid fa-user-group"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-2">The Intimate</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Serves 2-4 people</p>
+                        <div class="pricing-amount text-4xl font-bold text-gray-900 dark:text-white mb-6">$85</div>
+                        <ul class="space-y-3 mb-8 text-sm text-gray-600 dark:text-gray-300 w-fit text-left">
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> 3 Artisanal Cheeses</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> 2 Cured Meats</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Seasonal Fruits & Nuts</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Small Cracker Box</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-colors mt-auto">Select Package</button>
+                    </div>
+
+                    <!-- Card 2 (Featured) -->
+                    <div class="pricing-card bg-gray-900 dark:bg-black rounded-3xl p-8 border-2 border-primary shadow-2xl relative group flex flex-col items-center text-center max-w-sm mx-auto w-full">
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase">Most Popular</div>
+                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center text-primary text-2xl mb-6">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-white mb-2">The Social</h3>
+                        <p class="text-gray-400 text-sm mb-6">Serves 6-10 people</p>
+                        <div class="pricing-amount text-5xl font-bold text-white mb-6">$165</div>
+                        <ul class="space-y-3 mb-8 text-sm text-gray-300 w-fit text-left">
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> 4 Premium Cheeses</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> 3 Imported Meats</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Fresh Honeycomb</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Large Artisan Bread & Crackers</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-full bg-primary text-white font-bold hover:bg-primary-dark transition-colors mt-auto">Select Package</button>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="pricing-card bg-white dark:bg-gray-950 rounded-3xl p-8 border border-gray-100 dark:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-300 relative group flex flex-col items-center text-center max-w-sm mx-auto w-full">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl mb-6">
+                            <i class="fa-solid fa-users-viewfinder"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-2">The Gathering</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Serves 15-20 people</p>
+                        <div class="pricing-amount text-4xl font-bold text-gray-900 dark:text-white mb-6">$295</div>
+                        <ul class="space-y-3 mb-8 text-sm text-gray-600 dark:text-gray-300 w-fit text-left">
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> 5 Premium Cheeses</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> 4 Imported Meats</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> House-made Preserves</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Massive Cracker Assortment</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-colors mt-auto">Select Package</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wedding & Corporate Packages (Unique Layout: Split 50/50 Screen with Image overlays) -->
+        <section class="flex flex-col lg:flex-row min-h-[600px]">
+            <!-- Wedding -->
+            <div class="w-full lg:w-1/2 relative group overflow-hidden">
+                <img src="assets/images/pricing/wedding.webp" alt="Wedding Pricing" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div class="absolute inset-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm group-hover:bg-white/90 dark:group-hover:bg-gray-900/90 transition-colors duration-500"></div>
+                <div class="relative z-10 p-12 lg:p-24 flex flex-col justify-center h-full">
+                    <i class="fa-solid fa-rings-wedding text-4xl text-primary mb-6"></i>
+                    <h2 class="text-4xl font-serif font-bold text-gray-900 dark:text-white mb-4">Wedding Packages</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8">From cocktail hour grazing tables to late-night bite stations.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="border-b border-gray-300 dark:border-gray-700 pb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-xl font-bold text-gray-900 dark:text-white">Cocktail Hour Table</h4>
+                                <span class="text-xl font-bold text-primary">From $850</span>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Serves 50+. Includes full floral styling and props rental.</p>
+                        </div>
+                        <div class="border-b border-gray-300 dark:border-gray-700 pb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-xl font-bold text-gray-900 dark:text-white">The Grand Reception</h4>
+                                <span class="text-xl font-bold text-primary">From $1,500</span>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Serves 100+. Multi-level dimensional table setup.</p>
+                        </div>
+                    </div>
+                    <button class="mt-8 self-start flex items-center text-primary font-bold hover:text-gray-900 dark:hover:text-white transition-colors uppercase tracking-widest text-sm">
+                        Request Wedding Quote <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Corporate -->
+            <div class="w-full lg:w-1/2 relative group overflow-hidden">
+                <img src="assets/images/pricing/corporate.webp" alt="Corporate Pricing" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gray-900/80 dark:bg-black/80 backdrop-blur-sm group-hover:bg-gray-900/90 dark:group-hover:bg-black/90 transition-colors duration-500"></div>
+                <div class="relative z-10 p-12 lg:p-24 flex flex-col justify-center h-full">
+                    <i class="fa-solid fa-briefcase text-4xl text-primary mb-6"></i>
+                    <h2 class="text-4xl font-serif font-bold text-white mb-4">Corporate Packages</h2>
+                    <p class="text-gray-300 mb-8">Impress clients and reward teams with professional, mess-free setups.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="border-b border-gray-700 pb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-xl font-bold text-white">Individual Lunch Boxes</h4>
+                                <span class="text-xl font-bold text-primary">$22/ea</span>
+                            </div>
+                            <p class="text-sm text-gray-400">Minimum order of 20. Perfect for board meetings.</p>
+                        </div>
+                        <div class="border-b border-gray-700 pb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-xl font-bold text-white">Office Happy Hour Table</h4>
+                                <span class="text-xl font-bold text-primary">From $450</span>
+                            </div>
+                            <p class="text-sm text-gray-400">Serves 30. Quick setup and breakdown included.</p>
+                        </div>
+                    </div>
+                    <button class="mt-8 self-start flex items-center text-primary font-bold hover:text-white transition-colors uppercase tracking-widest text-sm">
+                        Request Corporate Quote <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Holiday Packages (Unique Layout: Alternating Zig-Zag Image/Text Blocks) -->
+        <section class="section-padding bg-white dark:bg-gray-950">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-4"><i class="fa-solid fa-gift text-primary mr-3"></i>Holiday Packages</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Seasonal specials that bring festive cheer to any table.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border border-gray-200 dark:border-gray-800 rounded-3xl overflow-hidden shadow-xl max-w-5xl mx-auto">
+                    <!-- Block 1 Image -->
+                    <div class="h-56 md:h-auto relative">
+                        <img src="assets/images/pricing/harvest.webp" alt="Thanksgiving" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <!-- Block 1 Text -->
+                    <div class="p-8 md:p-10 flex flex-col justify-center bg-gray-50 dark:bg-gray-900">
+                        <h3 class="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-2">The Harvest Board</h3>
+                        <p class="text-sm font-bold text-primary uppercase tracking-widest mb-4">Thanksgiving Special • $195</p>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Featuring baked brie with cranberry compote, candied pecans, aged cheddar, and autumn fruits. Perfect centerpiece  gathering.</p>
+                        <button class="btn-primary self-start">Pre-Order Now</button>
+                    </div>
+
+                    <!-- Block 2 Text -->
+                    <div class="p-8 md:p-10 flex flex-col justify-center bg-gray-100 dark:bg-gray-800 order-last md:order-none">
+                        <h3 class="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-2">Winter Wonderland</h3>
+                        <p class="text-sm font-bold text-primary uppercase tracking-widest mb-4">Christmas & NYE • $225</p>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">A spectacular display of truffle cheeses, smoked salmon, caviar, and dark chocolate truffles adorned with fresh pine sprigs.</p>
+                        <button class="btn-primary self-start">Pre-Order Now</button>
+                    </div>
+                    <!-- Block 2 Image -->
+                    <div class="h-56 md:h-auto relative">
+                        <img src="assets/images/pricing/winter.webp" alt="Winter" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add-On Services (Unique Layout: Minimalist Price Menu List) -->
+        <section class="section-padding bg-gray-50 dark:bg-black border-y border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex items-center gap-4 mb-12">
+                        <div class="flex-grow h-px bg-gray-300 dark:bg-gray-700"></div>
+                        <h2 class="text-3xl font-serif font-bold text-gray-900 dark:text-white">Add-On Services</h2>
+                        <div class="flex-grow h-px bg-gray-300 dark:bg-gray-700"></div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 hover:bg-white dark:hover:bg-gray-900 rounded-lg transition-colors border-b border-dashed border-gray-300 dark:border-gray-700">
+                            <div>
+                                <h5 class="text-lg font-bold text-gray-900 dark:text-white">Foliage & Floral Styling</h5>
+                                <p class="text-sm text-gray-500">Fresh eucalyptus and seasonal blooms integrated into the table.</p>
+                            </div>
+                            <div class="text-xl font-bold text-primary">+$150</div>
+                        </div>
+                        <div class="flex justify-between items-center p-4 hover:bg-white dark:hover:bg-gray-900 rounded-lg transition-colors border-b border-dashed border-gray-300 dark:border-gray-700">
+                            <div>
+                                <h5 class="text-lg font-bold text-gray-900 dark:text-white">Bamboo Plates & Utensils</h5>
+                                <p class="text-sm text-gray-500">Eco-friendly disposable tableware for 50 guests.</p>
+                            </div>
+                            <div class="text-xl font-bold text-primary">+$45</div>
+                        </div>
+                        <div class="flex justify-between items-center p-4 hover:bg-white dark:hover:bg-gray-900 rounded-lg transition-colors border-b border-dashed border-gray-300 dark:border-gray-700">
+                            <div>
+                                <h5 class="text-lg font-bold text-gray-900 dark:text-white">Wooden Board Keepsake</h5>
+                                <p class="text-sm text-gray-500">Keep the custom engraved walnut board after the event.</p>
+                            </div>
+                            <div class="text-xl font-bold text-primary">+$80</div>
+                        </div>
+                        <div class="flex justify-between items-center p-4 hover:bg-white dark:hover:bg-gray-900 rounded-lg transition-colors border-b border-dashed border-gray-300 dark:border-gray-700">
+                            <div>
+                                <h5 class="text-lg font-bold text-gray-900 dark:text-white">Dedicated Table Attendant</h5>
+                                <p class="text-sm text-gray-500">A staff member to replenish and manage the table for 3 hours.</p>
+                            </div>
+                            <div class="text-xl font-bold text-primary">+$250</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offers (Unique Layout: Ticket / Coupon Style) -->
+        <section class="section-padding bg-white dark:bg-gray-950">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="ticket-shape bg-primary p-1 md:p-2 max-w-4xl mx-auto shadow-2xl">
+                    <div class="ticket-shape bg-white dark:bg-gray-900 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between border-2 border-dashed border-primary">
+                        <div class="mb-6 md:mb-0 text-center md:text-left">
+                            <span class="bg-primary text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-4 inline-block">Limited Time Offer</span>
+                            <h3 class="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-2">Free Wine Pairing Guide</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Book any Grazing Table package this month and receive our premium printed pairing guide and a complimentary bottle of Prosecco.</p>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <a href="index.html#contact" class="btn-primary block text-center whitespace-nowrap">Claim Offer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Luxury Experiences & Custom Packages (Unique Layout: Dark Mode Focused Background Image block) -->
+        <section class="py-32 luxury-bg text-white relative overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-20 mix-blend-overlay">
+                <img src="assets/images/pricing/luxury.webp" alt="Luxury Background" class="w-full h-full object-cover">
+            </div>
+            <div class="container mx-auto px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24 relative z-10 text-center max-w-3xl">
+                <i class="fa-solid fa-gem text-5xl text-primary mb-6"></i>
+                <h2 class="text-4xl md:text-6xl font-serif font-bold mb-6">Luxury Custom Experiences</h2>
+                <p class="text-xl text-gray-300 font-light mb-10">
+                    Require something entirely bespoke? From caviar tasting flights to full private chef multi-course cheese pairings, our custom packages are limited only by your imagination.
+                </p>
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl">
+                    <p class="text-lg font-bold mb-4">Starting at $2,500</p>
+                    <a href="index.html#contact" class="inline-block py-4 px-10 bg-white text-gray-900 hover:bg-primary hover:text-white transition-colors font-bold rounded-full uppercase tracking-widest text-sm shadow-[0_0_20px_rgba(212,175,55,0.3)]">Schedule a Consultation</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-black pt-16 pb-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-4">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-serif font-bold text-primary mb-4">
+                        <i class="fa-solid fa-cheese text-primary"></i> L'Artisan
+                    </a>
+                    <p class="text-primary font-serif italic mb-4">The Art of Grazing.</p>
+                    <p class="text-gray-600 dark:text-white text-sm mb-6">
+                        Crafting luxurious, edible masterpieces that bring people together and turn gatherings into unforgettable celebrations.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-x-twitter text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">About</a></li>
+                        <li><a href="gallery.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Gallery</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Events</a></li>
+                        <li><a href="pricing.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Pricing</a></li>
+                        
+                        <li><a href="contact.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Wedding Catering</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Corporate Events</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Birthday Parties</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Luxury Grazing Tables</a></li>
+                        <li><a href="wine-pairings.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Wine Pairings</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Private Chef Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Newsletter</h4>
+                    <p class="text-gray-600 dark:text-white text-sm mb-4">Subscribe to receive exclusive seasonal menus and pairing tips.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Email Address" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white text-sm rounded-md focus:ring-primary focus:border-primary block w-full p-2.5">
+                        <button type="button" class="btn-primary w-full text-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 dark:text-white">&copy; 2026 L'Artisan Catering. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-sm text-gray-500 dark:text-white hover:text-primary">Privacy Policy</a>
+                    <a href="#" class="text-sm text-gray-500 dark:text-white hover:text-primary">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Main JS -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Scripts for UI interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme & RTL Toggles
+            const mobileThemeToggle = document.getElementById('theme-toggle-mobile');
+            if(mobileThemeToggle) {
+                mobileThemeToggle.addEventListener('click', () => {
+                    document.getElementById('theme-toggle').click();
+                });
+            }
+            const mobileRtlToggle = document.getElementById('rtl-toggle-mobile');
+            if(mobileRtlToggle) {
+                mobileRtlToggle.addEventListener('click', () => {
+                    const rtlBtn = document.getElementById('rtl-toggle');
+                    if (rtlBtn) rtlBtn.click();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

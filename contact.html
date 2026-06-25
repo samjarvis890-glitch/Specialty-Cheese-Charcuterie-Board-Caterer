@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Booking | L'Artisan | Specialty Cheese & Charcuterie</title>
+    <meta name="description" content="Get in touch to book your luxury charcuterie grazing table, corporate catering, or wedding event. Request a custom quote today.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%232563EB'><path d='M512 240.2l0 15.8L0 256c0-20 10-38.7 26.6-49.8L274.9 40.7c8.6-5.7 18.6-8.7 28.9-8.7C418.8 32 512 125.2 512 240.2zm0 47.8l0 128c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 288l512 0z'/></svg>">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB',
+                            dark: '#1D4ED8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        /* Unique Contact CSS */
+        .form-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #e5e7eb;
+            padding: 0.65rem 0;
+            color: inherit;
+            transition: border-color 0.3s;
+        }
+        .dark .form-input {
+            border-bottom-color: #374151;
+        }
+        .form-input:focus {
+            outline: none;
+            border-bottom-color: #D4AF37;
+        }
+        
+        /* Map pulsing & animations */
+        .pulse-gold-1 {
+            animation: pulse-gold-ring 2.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+        }
+        .pulse-gold-2 {
+            animation: pulse-gold-ring 2.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+            animation-delay: 0.8s;
+        }
+        @keyframes pulse-gold-ring {
+            0% { transform: scale(0.6); opacity: 0.9; }
+            50% { opacity: 0.5; }
+            100% { transform: scale(2.2); opacity: 0; }
+        }
+
+        /* SVG Map Elements */
+        .map-bg { fill: #FAF8F5; transition: fill 0.4s ease; }
+        .dark .map-bg { fill: #0B0B0F; }
+
+        .map-water { fill: #E8E2D5; opacity: 0.7; transition: fill 0.4s ease; }
+        .dark .map-water { fill: #16161F; opacity: 0.9; }
+
+        .map-roads { stroke: #EBE4D8; stroke-width: 1; fill: none; transition: stroke 0.4s ease; }
+        .dark .map-roads { stroke: #1D1D26; }
+
+        .map-parks { fill: #EBE5D8; opacity: 0.5; transition: fill 0.4s ease; }
+        .dark .map-parks { fill: #131713; opacity: 0.4; }
+
+        .zone-royale { fill: rgba(212, 175, 55, 0.05); stroke: rgba(212, 175, 55, 0.35); stroke-dasharray: 4 3; stroke-width: 1.2; }
+        .zone-premium { fill: rgba(212, 175, 55, 0.03); stroke: rgba(212, 175, 55, 0.25); stroke-dasharray: 6 5; stroke-width: 1; }
+        .zone-elite { fill: rgba(212, 175, 55, 0.01); stroke: rgba(212, 175, 55, 0.15); stroke-dasharray: 8 7; stroke-width: 0.8; }
+
+        .animate-route-flow {
+            transition: stroke-dashoffset 2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s;
+            opacity: 0.15;
+        }
+        .animate-route-flow.active {
+            opacity: 1;
+        }
+
+        /* Location pins scale and transition */
+        .map-pin-group {
+            transform-origin: 0px 0px;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .map-pin-group:hover, .map-pin-group.active {
+            transform: scale(1.25);
+        }
+
+        /* Glassmorphism styling */
+        .glass-card {
+            background: rgba(253, 251, 247, 0.7) !important;
+            backdrop-filter: blur(12px) saturate(120%);
+            -webkit-backdrop-filter: blur(12px) saturate(120%);
+            border: 1px solid rgba(212, 175, 55, 0.15) !important;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+            transition: all 0.3s ease;
+        }
+        .dark .glass-card {
+            background: rgba(11, 11, 15, 0.75) !important;
+            border: 1px solid rgba(212, 175, 55, 0.1) !important;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        .glass-card-active {
+            background: rgba(253, 251, 247, 0.95) !important;
+            backdrop-filter: blur(12px) saturate(120%);
+            -webkit-backdrop-filter: blur(12px) saturate(120%);
+            border: 1px solid rgba(212, 175, 55, 0.8) !important;
+            box-shadow: 0 8px 32px 0 rgba(212, 175, 55, 0.12);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        .dark .glass-card-active {
+            background: rgba(18, 18, 23, 0.95) !important;
+            border: 1px solid rgba(212, 175, 55, 0.8) !important;
+            box-shadow: 0 8px 32px 0 rgba(212, 175, 55, 0.15);
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-serif font-bold text-primary">
+                        <i class="fa-solid fa-cheese text-primary"></i>
+                        <span>L'Artisan</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden xl:flex space-x-4 xl:space-x-4 2xl:space-x-6 rtl:space-x-reverse h-full whitespace-nowrap text-sm xl:text-sm 2xl:text-base">
+                    <div class="relative group h-full flex items-center">
+                        <button class="text-gray-700 dark:text-white group-hover:text-primary dark:group-hover:text-primary font-medium flex items-center transition-colors">
+                            Home <i class="fa-solid fa-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:-rotate-180"></i>
+                        </button>
+                        
+                        <!-- Dropdown Wrapper -->
+                        <div class="absolute left-0 top-full z-50 hidden group-hover:block">
+                            <!-- Inner Dropdown -->
+                            <div class="mt-2 w-48 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800">
+                                <a href="index.html" class="group/item block border-b border-gray-100 px-4 py-2 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700">
+                                    <div class="font-semibold text-gray-900 dark:text-white group-hover/item:text-primary transition-colors">Home 1</div>
+                                </a>
+                                <a href="home2.html" class="group/item block px-4 py-2 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700">
+                                    <div class="font-semibold text-gray-900 dark:text-white group-hover/item:text-primary transition-colors">Home 2</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="about.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">About</a>
+                    <a href="board-builder.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Board Builder</a>
+                    <a href="catering.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Catering</a>
+                    <a href="wine-pairings.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Wine Pairings</a>
+                    <a href="gallery.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Gallery</a>
+                    <a href="pricing.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Pricing</a>
+                    <a href="blog.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Blog</a>
+                    <a href="contact.html" class="text-gray-700 dark:text-white hover:text-primary dark:hover:text-primary font-medium flex items-center h-full">Contact</a>
+                </nav>
+                
+                <!-- Desktop Icons -->
+                <div class="hidden xl:flex items-center space-x-2 xl:space-x-4 rtl:space-x-reverse">
+                    <button id="theme-toggle" class="text-gray-500 dark:text-white hover:text-primary dark:hover:text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded-full transition-colors" aria-label="Toggle Dark Mode">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle" class="text-gray-500 dark:text-white hover:text-primary dark:hover:text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded-full transition-colors" title="Toggle RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                    <a href="login.html" class="btn-primary px-5 py-2 text-sm rounded-md shadow-sm ml-2">
+                        <i class="fa-regular fa-user mr-2"></i> Login
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="xl:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 dark:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white dark:bg-gray-900 z-[60] transform translate-x-full transition-transform duration-300 xl:hidden overflow-y-auto">
+        <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
+            <a href="index.html" class="flex items-center gap-2 text-xl font-serif font-bold text-primary">
+                <i class="fa-solid fa-cheese text-primary"></i> L'Artisan
+            </a>
+            <button id="close-menu-button" class="text-gray-700 dark:text-white">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+        </div>
+        <div class="p-4 space-y-4">
+            <div>
+                <button class="mobile-dropdown-toggle flex justify-between w-full text-left text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800" data-target="mobile-home-menu">
+                    Home <i class="fa-solid fa-chevron-down transition-transform"></i>
+                </button>
+                <div id="mobile-home-menu" class="hidden pl-4 py-2 space-y-2">
+                    <a href="index.html" class="block text-gray-600 dark:text-white hover:text-primary transition-colors">Home 1</a>
+                    <a href="home2.html" class="block text-gray-600 dark:text-white hover:text-primary transition-colors">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">About</a>
+            <a href="board-builder.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Board Builder</a>
+            <a href="catering.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Catering</a>
+            <a href="wine-pairings.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Wine Pairings</a>
+            <a href="gallery.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Gallery</a>
+            <a href="pricing.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Pricing</a>
+            <a href="blog.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Blog</a>
+            <a href="contact.html" class="block text-lg font-medium text-gray-900 dark:text-white py-2 border-b border-gray-100 dark:border-gray-800">Contact</a>
+            
+            <div class="flex items-center justify-between border-t border-gray-100 dark:border-gray-800 pt-4 mt-2">
+                <span class="text-gray-700 dark:text-white font-medium">Preferences</span>
+                <div class="flex gap-2">
+                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-white p-2 bg-gray-50 dark:bg-gray-800 rounded-full hover:text-primary">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle-mobile" class="text-gray-500 dark:text-white p-2 bg-gray-50 dark:bg-gray-800 rounded-full hover:text-primary" title="Toggle RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="flex gap-4 pt-4">
+                <a href="login.html" class="btn-primary w-full text-center"><i class="fa-regular fa-user mr-2"></i> Login</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        
+        <!-- Hero Section (Unique Layout: Split Text / Image Banner) -->
+        <section class="h-[55vh] min-h-[450px] flex">
+            <div class="w-full md:w-1/2 bg-gray-900 dark:bg-black flex flex-col justify-center px-6 md:px-12 lg:px-24 border-r-8 border-primary relative z-10">
+                <span class="text-primary font-bold tracking-widest uppercase text-sm mb-3 block">Connect With Us</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4">Contact & Booking</h1>
+                <p class="text-gray-300 text-sm md:text-base max-w-lg mb-6 leading-relaxed">
+                    Whether you are planning an intimate family gathering, a corporate luncheon, or a grand wedding milestone, we are here to craft a customized experience. Reach out today to start curating your perfect gourmet display.
+                </p>
+                <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs md:text-sm text-gray-400">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-clock text-primary"></i> 24h Response Guarantee</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-primary"></i> Fully Licensed & Insured</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-wand-magic-sparkles text-primary"></i> Custom Curation</span>
+                </div>
+            </div>
+            <div class="hidden md:block md:w-1/2 relative">
+                <img src="assets/images/contact/hero.webp" alt="Contact Hero" class="absolute inset-0 w-full h-full object-cover grayscale opacity-80">
+                <div class="absolute inset-0 bg-primary mix-blend-multiply opacity-20"></div>
+            </div>
+        </section>
+
+        <!-- Main Form & Contact Details Area (Unique Layout: Overlapping Dual Cards) -->
+        <section class="section-padding -mt-10 relative z-20">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="flex flex-col lg:flex-row shadow-2xl rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800 max-w-5xl mx-auto">
+                    
+                    <!-- Left: Contact Details -->
+                    <div class="w-full lg:w-2/5 bg-gray-900 dark:bg-black text-white p-8 md:p-10 flex flex-col justify-between text-center lg:text-left contact-info-col">
+                        <div>
+                            <h2 class="text-3xl font-serif font-bold mb-2">Get in Touch</h2>
+                            <p class="text-gray-400 mb-6 text-sm">We'd love to hear from you. Our team is ready to answer any questions about custom quotes, dietary requirements, or event styling.</p>
+                            
+                            <div class="space-y-6 w-fit mx-auto lg:mx-0 text-left">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                                        <i class="fa-solid fa-location-dot text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold uppercase tracking-wider text-xs mb-1 text-gray-300">Headquarters</h4>
+                                        <p class="text-gray-400 font-light text-xs">123 Artisan Boulevard,<br>Culinary District, NY 10012</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                                        <i class="fa-solid fa-phone text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold uppercase tracking-wider text-xs mb-1 text-gray-300">Direct Line</h4>
+                                        <p class="text-gray-400 font-light text-xs">+1 (555) 123-4567<br><span class="text-[10px] text-gray-500">Mon-Fri: 9am - 6pm</span></p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                                        <i class="fa-solid fa-envelope text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold uppercase tracking-wider text-xs mb-1 text-gray-300">Email Address</h4>
+                                        <p class="text-gray-400 font-light text-xs">events@lartisan.com<br>info@lartisan.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-gray-800">
+                            <h4 class="font-bold uppercase tracking-wider text-xs mb-3 text-gray-300">Follow Our Creations</h4>
+                            <div class="flex justify-center lg:justify-start gap-3">
+                                <a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"><i class="fa-brands fa-instagram text-sm"></i></a>
+                                <a href="https://facebook.com" target="_blank" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                                <a href="https://pinterest.com" target="_blank" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"><i class="fa-brands fa-pinterest-p text-sm"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Consultation Form (Request a Quote) -->
+                    <div class="w-full lg:w-3/5 bg-white dark:bg-gray-900 p-8 md:p-10">
+                        <div class="text-center lg:text-left mb-6 contact-form-header">
+                            <h2 class="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-2">Request a Quote</h2>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Fill out the consultation form below, and our curation team will respond within 24 hours.</p>
+                        </div>
+                        
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <input type="text" placeholder="First Name *" class="form-input" required>
+                                </div>
+                                <div>
+                                    <input type="text" placeholder="Last Name *" class="form-input" required>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <input type="email" placeholder="Email Address *" class="form-input" required>
+                                </div>
+                                <div>
+                                    <input type="tel" placeholder="Phone Number" class="form-input">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <select class="form-input text-gray-500 dark:text-gray-400 cursor-pointer">
+                                        <option value="" disabled selected>Event Type *</option>
+                                        <option value="wedding">Wedding</option>
+                                        <option value="corporate">Corporate Event</option>
+                                        <option value="birthday">Birthday / Party</option>
+                                        <option value="intimate">Intimate Gathering</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <input type="date" class="form-input text-gray-500 dark:text-gray-400 cursor-pointer" required>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-2">
+                                <textarea rows="3" placeholder="Tell us about your event vision, estimated guest count, and any dietary restrictions... *" class="form-input resize-none" required></textarea>
+                            </div>
+                            
+                            <div class="pt-4">
+                                <button type="submit" class="btn-primary px-8 py-3 w-full md:w-auto font-bold uppercase tracking-wider text-sm shadow-xl hover:shadow-primary/40 transition-shadow">
+                                    Send Inquiry <i class="fa-solid fa-paper-plane ml-2"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Delivery Information (Unique Layout: 3-Step Process blocks) -->
+        <section class="section-padding bg-white dark:bg-gray-950">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-4">Delivery Information</h2>
+                    <p class="text-gray-600 dark:text-gray-400">How we ensure your masterpiece arrives perfectly intact.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Delivery Step 1 -->
+                    <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-tr-3xl rounded-bl-3xl border border-gray-100 dark:border-gray-800 text-center hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full">
+                        <i class="fa-solid fa-truck-fast text-4xl text-primary mb-6"></i>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3 md:min-h-[3.5rem] lg:min-h-[1.75rem]">Safe Transport</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 flex-grow md:min-h-[7.5rem] lg:min-h-[5rem]">All boards are transported in climate-controlled catering vans using specialized level-racks to prevent any shifting of the delicate ingredients.</p>
+                    </div>
+                    <!-- Delivery Step 2 -->
+                    <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-tr-3xl rounded-bl-3xl border border-gray-100 dark:border-gray-800 text-center hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full">
+                        <i class="fa-solid fa-boxes-packing text-4xl text-primary mb-6"></i>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3 md:min-h-[3.5rem] lg:min-h-[1.75rem]">On-Site Setup</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 flex-grow md:min-h-[7.5rem] lg:min-h-[5rem]">For Grazing Tables, we arrive 1.5 to 2 hours prior to your event start time to assemble the landscape fresh on-site for maximum visual impact.</p>
+                    </div>
+                    <!-- Delivery Step 3 -->
+                    <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-tr-3xl rounded-bl-3xl border border-gray-100 dark:border-gray-800 text-center hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full">
+                        <i class="fa-solid fa-recycle text-4xl text-primary mb-6"></i>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3 md:min-h-[3.5rem] lg:min-h-[1.75rem]">Cleanup & Retrieval</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 flex-grow md:min-h-[7.5rem] lg:min-h-[5rem]">If you rented our elevated props or wooden boards, our team will return within 24 hours of your event's conclusion to retrieve our equipment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium Luxury Catering Delivery & Service Areas Map Section -->
+        <section id="delivery-map" class="section-padding bg-[#FAF8F5] dark:bg-[#0A0A0E] relative overflow-hidden transition-colors duration-300">
+            <!-- Sophisticated Hospitality Background details -->
+            <div class="absolute inset-0 opacity-[0.02] dark:opacity-[0.05] pointer-events-none">
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#D4AF37" stroke-width="1" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" />
+                </svg>
+            </div>
+
+            <!-- Cream-toned ambient light blobs for premium aesthetics -->
+            <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-[#E8DCC4] dark:bg-[#1A1813] blur-[120px] opacity-40 pointer-events-none"></div>
+            <div class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-[#D4AF37] dark:bg-[#1E190D] blur-[120px] opacity-15 pointer-events-none"></div>
+
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24 relative z-10">
+                <!-- Title and Branding -->
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <span class="text-xs uppercase tracking-[0.25em] text-[#D4AF37] font-semibold mb-3 block">
+                        <i class="fa-solid fa-map-location-dot mr-2"></i> L'Artisan Concierge
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-6">
+                        Delivery Zones & Venues
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 font-light text-base leading-relaxed">
+                        Experience luxury catering curated to perfection. From our central Atelier, we map out routes to the region's most prestigious locations, ensuring pristine presentation for every gathering.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                    
+                    <!-- Left Side: Interactive Glassmorphism Cards -->
+                    <div class="col-span-1 lg:col-span-5 flex flex-col justify-between space-y-6">
+                        <div class="space-y-4" id="venue-cards-container">
+                            
+                            <!-- Venue 1: Weddings -->
+                            <div id="card-wedding" 
+                                 class="glass-card p-6 rounded-2xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex gap-4"
+                                 onclick="selectVenue('wedding')">
+                                <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37] flex-shrink-0 transition-colors border border-[#D4AF37]/20">
+                                    <i class="fa-solid fa-ring text-xl"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex justify-between items-start">
+                                        <h4 class="font-serif font-bold text-lg text-gray-900 dark:text-white mb-1">Weddings</h4>
+                                        <span class="text-[10px] uppercase tracking-wider bg-[#D4AF37]/20 text-[#b5952f] dark:text-[#F3E5AB] px-2 py-0.5 rounded-full font-bold">Zone Élite</span>
+                                    </div>
+                                    <h5 class="text-xs text-[#D4AF37] font-medium mb-2">The Grand Chateau &bull; 35 miles</h5>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400 font-light leading-relaxed">
+                                        Signature multi-tier cheese towers, styled grazing tables, and premium pairings curated on-site.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Venue 2: Corporate -->
+                            <div id="card-corporate" 
+                                 class="glass-card p-6 rounded-2xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex gap-4"
+                                 onclick="selectVenue('corporate')">
+                                <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37] flex-shrink-0 transition-colors border border-[#D4AF37]/20">
+                                    <i class="fa-solid fa-building-user text-xl"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex justify-between items-start">
+                                        <h4 class="font-serif font-bold text-lg text-gray-900 dark:text-white mb-1">Corporate Events</h4>
+                                        <span class="text-[10px] uppercase tracking-wider bg-[#D4AF37]/20 text-[#b5952f] dark:text-[#F3E5AB] px-2 py-0.5 rounded-full font-bold">Zone Royale</span>
+                                    </div>
+                                    <h5 class="text-xs text-[#D4AF37] font-medium mb-2">Plaza Financial Towers &bull; 8 miles</h5>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400 font-light leading-relaxed">
+                                        Curated individual tasting boxes and grand buffet grazing setups tailored for executives.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Venue 3: Private Parties -->
+                            <div id="card-private" 
+                                 class="glass-card p-6 rounded-2xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex gap-4"
+                                 onclick="selectVenue('private')">
+                                <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37] flex-shrink-0 transition-colors border border-[#D4AF37]/20">
+                                    <i class="fa-solid fa-wine-glass text-xl"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex justify-between items-start">
+                                        <h4 class="font-serif font-bold text-lg text-gray-900 dark:text-white mb-1">Private Soirées</h4>
+                                        <span class="text-[10px] uppercase tracking-wider bg-[#D4AF37]/20 text-[#b5952f] dark:text-[#F3E5AB] px-2 py-0.5 rounded-full font-bold">Zone Premium</span>
+                                    </div>
+                                    <h5 class="text-xs text-[#D4AF37] font-medium mb-2">Penthouse Gardens &bull; 15 miles</h5>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400 font-light leading-relaxed">
+                                        Masterclass pairings led by our in-house sommelier, featuring raw milk cheeses and vintage wines.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Venue 4: Luxury Gatherings -->
+                            <div id="card-luxury" 
+                                 class="glass-card p-6 rounded-2xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex gap-4"
+                                 onclick="selectVenue('luxury')">
+                                <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37] flex-shrink-0 transition-colors border border-[#D4AF37]/20">
+                                    <i class="fa-solid fa-anchor text-xl"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex justify-between items-start">
+                                        <h4 class="font-serif font-bold text-lg text-gray-900 dark:text-white mb-1">Luxury Gatherings</h4>
+                                        <span class="text-[10px] uppercase tracking-wider bg-[#D4AF37]/20 text-[#b5952f] dark:text-[#F3E5AB] px-2 py-0.5 rounded-full font-bold">Zone Premium</span>
+                                    </div>
+                                    <h5 class="text-xs text-[#D4AF37] font-medium mb-2">Waterfront Marina &bull; 22 miles</h5>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400 font-light leading-relaxed">
+                                        Climate-controlled board deliveries for yacht departures, charters, and coastal galas.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Radius Legend -->
+                        <div class="glass-card p-6 rounded-2xl mt-4 border-dashed">
+                            <h5 class="font-serif font-bold text-sm text-gray-900 dark:text-white mb-3">Delivery Zones Coverage</h5>
+                            <div class="grid grid-cols-3 gap-2 text-[11px]">
+                                <div class="border-r border-gray-200 dark:border-gray-800 pr-2">
+                                    <span class="block text-gray-400 uppercase tracking-widest text-[9px] mb-1">Royale</span>
+                                    <span class="block font-bold text-gray-800 dark:text-gray-200">0 - 10 Miles</span>
+                                    <span class="text-[#D4AF37] font-medium">Free Delivery</span>
+                                </div>
+                                <div class="border-r border-gray-200 dark:border-gray-800 px-2">
+                                    <span class="block text-gray-400 uppercase tracking-widest text-[9px] mb-1">Premium</span>
+                                    <span class="block font-bold text-gray-800 dark:text-gray-200">10 - 25 Miles</span>
+                                    <span class="text-[#D4AF37] font-medium">$45 / Min $300</span>
+                                </div>
+                                <div class="pl-2">
+                                    <span class="block text-gray-400 uppercase tracking-widest text-[9px] mb-1">Élite</span>
+                                    <span class="block font-bold text-gray-800 dark:text-gray-200">25 - 50 Miles</span>
+                                    <span class="text-[#D4AF37] font-medium">$95 / Min $500</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: The Map Viewport -->
+                    <div class="col-span-1 lg:col-span-7 flex flex-col justify-center">
+                        <div class="relative w-full aspect-[4/3] rounded-3xl bg-white dark:bg-[#0B0B0F] border border-gray-200 dark:border-[#1F1F27] shadow-xl overflow-hidden group">
+                            
+                            <!-- SVG Map Canvas -->
+                            <svg viewBox="0 0 800 600" class="w-full h-full object-cover select-none">
+                                <!-- Definitions for Gradients and Filters -->
+                                <defs>
+                                    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.3" />
+                                        <stop offset="50%" stop-color="#F3E5AB" stop-opacity="1" />
+                                        <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.9" />
+                                    </linearGradient>
+                                    
+                                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="4" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                </defs>
+
+                                <!-- Base Map Background -->
+                                <rect width="800" height="600" class="map-bg" />
+
+                                <!-- stylized Park area -->
+                                <rect x="100" y="80" width="130" height="130" rx="16" class="map-parks" />
+                                <circle cx="650" cy="460" r="100" class="map-parks" />
+
+                                <!-- stylized Water body (River / Bay) -->
+                                <path d="M -50 420 C 180 430, 280 220, 420 320 C 560 420, 680 320, 850 370 L 850 650 L -50 650 Z" class="map-water" />
+
+                                <!-- stylized Organic Street Grid -->
+                                <path d="M -50 180 Q 250 190, 400 300 T 850 420" class="map-roads" stroke-width="2.5" />
+                                <path d="M 180 -50 Q 320 220, 400 300 T 680 650" class="map-roads" stroke-width="2.5" />
+                                <path d="M 850 120 Q 580 220, 400 300 T -50 480" class="map-roads" stroke-width="2.5" />
+                                
+                                <path d="M 50 -50 L 50 650 M 150 -50 L 150 650 M 250 -50 L 250 650 M 350 -50 L 350 650 M 450 -50 L 450 650 M 550 -50 L 550 650 M 650 -50 L 650 650 M 750 -50 L 750 650" class="map-roads" stroke-dasharray="2 12" />
+                                <path d="M -50 50 L 850 50 M -50 150 L 850 150 M -50 250 L 850 250 M -50 350 L 850 350 M -50 450 L 850 450 M -50 550 L 850 550" class="map-roads" stroke-dasharray="2 12" />
+
+                                <!-- Subtle background cheese board details -->
+                                <g transform="translate(680, 80) scale(0.65)" class="opacity-[0.12] dark:opacity-[0.05] pointer-events-none" style="color: #D4AF37;">
+                                    <path d="M 0 0 C 40 -10, 100 20, 120 60 C 130 90, 110 130, 80 140 C 50 150, -10 120, -30 80 C -40 50, -30 10, 0 0 Z" fill="none" stroke="currentColor" stroke-width="2" />
+                                    <path d="M -23 20 L -50 0 C -55 -4, -58 -10, -54 -15 C -50 -20, -44 -17, -40 -13 L -13 8" fill="none" stroke="currentColor" stroke-width="2" />
+                                    <circle cx="-47" cy="-7" r="3" fill="none" stroke="currentColor" stroke-width="2" />
+                                    <path d="M 30 40 L 70 30 L 60 70 Z" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                    <circle cx="45" cy="45" r="2" fill="currentColor" />
+                                    <circle cx="55" cy="50" r="1.5" fill="currentColor" />
+                                    <circle cx="20" cy="80" r="6" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                    <circle cx="28" cy="83" r="6" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                    <circle cx="23" cy="90" r="6" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                    <circle cx="15" cy="87" r="6" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                </g>
+
+                                <g transform="translate(60, 480) scale(0.6)" class="opacity-[0.12] dark:opacity-[0.05] pointer-events-none" style="color: #D4AF37;">
+                                    <ellipse cx="60" cy="40" rx="70" ry="40" fill="none" stroke="currentColor" stroke-width="2" />
+                                    <circle cx="60" cy="30" r="5" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                    <circle cx="70" cy="35" r="5" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                    <circle cx="80" cy="40" r="5" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                    <path d="M 100 10 L 115 10 L 115 25 Q 115 35, 107 35 L 107 45 M 102 45 L 112 45" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                </g>
+
+                                <!-- Delivery Zones Coverage Circles -->
+                                <circle cx="400" cy="300" r="280" class="zone-elite" />
+                                <text x="400" y="35" fill="#D4AF37" font-size="8" font-family="'Inter', sans-serif" font-weight="bold" opacity="0.6" tracking-widest text-anchor="middle">50 MILES radius (ZONE ÉLITE)</text>
+
+                                <circle cx="400" cy="300" r="180" class="zone-premium" />
+                                <text x="400" y="132" fill="#D4AF37" font-size="8" font-family="'Inter', sans-serif" font-weight="bold" opacity="0.8" tracking-widest text-anchor="middle">25 MILES radius (ZONE PREMIUM)</text>
+
+                                <circle cx="400" cy="300" r="90" class="zone-royale" />
+                                <text x="400" y="222" fill="#D4AF37" font-size="8" font-family="'Inter', sans-serif" font-weight="bold" opacity="0.9" tracking-widest text-anchor="middle">10 MILES radius (ZONE ROYALE)</text>
+
+                                <!-- Base Routes (Faint Static Gold) -->
+                                <path d="M 400 300 Q 280 200, 180 160" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.25" />
+                                <path d="M 400 300 Q 520 220, 620 180" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.25" />
+                                <path d="M 400 300 Q 320 400, 260 470" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.25" />
+                                <path d="M 400 300 Q 540 380, 640 430" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.25" />
+
+                                <!-- Active Route Flows (Animated & Glowing) -->
+                                <path id="route-wedding" d="M 400 300 Q 280 200, 180 160" fill="none" stroke="url(#goldGradient)" stroke-width="4" stroke-linecap="round" filter="url(#glow)" class="animate-route-flow" />
+                                <path id="route-corporate" d="M 400 300 Q 520 220, 620 180" fill="none" stroke="url(#goldGradient)" stroke-width="4" stroke-linecap="round" filter="url(#glow)" class="animate-route-flow" />
+                                <path id="route-private" d="M 400 300 Q 320 400, 260 470" fill="none" stroke="url(#goldGradient)" stroke-width="4" stroke-linecap="round" filter="url(#glow)" class="animate-route-flow" />
+                                <path id="route-luxury" d="M 400 300 Q 540 380, 640 430" fill="none" stroke="url(#goldGradient)" stroke-width="4" stroke-linecap="round" filter="url(#glow)" class="animate-route-flow" />
+
+                                <!-- CENTRAL HQ PIN -->
+                                <g id="pin-hq" transform="translate(400, 300)" class="cursor-pointer">
+                                    <circle cx="0" cy="0" r="16" fill="none" stroke="#D4AF37" stroke-width="2.5" class="pulse-gold-1" />
+                                    <circle cx="0" cy="0" r="16" fill="none" stroke="#D4AF37" stroke-width="1" class="pulse-gold-2" />
+                                    <circle cx="0" cy="0" r="6" fill="#D4AF37" />
+                                    <circle cx="0" cy="0" r="2.5" fill="#FFFFFF" />
+                                    <path d="M 0 0 L 0 -22" stroke="#D4AF37" stroke-width="2" />
+                                    <g transform="translate(0, -22)">
+                                        <rect x="-35" y="-18" width="70" height="18" rx="4" fill="#0A0A0E" stroke="#D4AF37" stroke-width="1.5" />
+                                        <text x="0" y="-6" fill="#FFFFFF" font-size="8" font-family="'Inter', sans-serif" font-weight="bold" text-anchor="middle" letter-spacing="1">ATELIER HQ</text>
+                                    </g>
+                                </g>
+
+                                <!-- PIN: Weddings (180, 160) -->
+                                <g id="pin-wedding" transform="translate(180, 160)" class="map-pin-group cursor-pointer" onclick="selectVenue('wedding')">
+                                    <circle cx="0" cy="0" r="18" fill="none" stroke="#D4AF37" stroke-width="2.5" class="pulse-gold-1 pin-pulse-element hidden" />
+                                    <circle cx="0" cy="0" r="18" fill="none" stroke="#D4AF37" stroke-width="1.5" class="pulse-gold-2 pin-pulse-element hidden" />
+                                    
+                                    <path d="M 0 0 C -8 -8, -12 -16, -12 -24 C -12 -32, -6 -38, 0 -38 C 6 -38, 12 -32, 12 -24 C 12 -16, 8 -8, 0 0 Z" fill="#D4AF37" />
+                                    <circle cx="0" cy="-24" r="8" fill="#FFFFFF" />
+                                    <circle cx="-2.5" cy="-24" r="3.5" fill="none" stroke="#D4AF37" stroke-width="0.8" />
+                                    <circle cx="2.5" cy="-24" r="3.5" fill="none" stroke="#D4AF37" stroke-width="0.8" />
+                                    
+                                    <g transform="translate(0, -42)">
+                                        <rect x="-32" y="-14" width="64" height="14" rx="3" fill="#0A0A0E" opacity="0.9" stroke="#D4AF37" stroke-width="0.7" />
+                                        <text x="0" y="-4" fill="#FFFFFF" font-size="7" font-family="'Inter', sans-serif" font-weight="bold" text-anchor="middle">GRAND CHATEAU</text>
+                                    </g>
+                                </g>
+
+                                <!-- PIN: Corporate Events (620, 180) -->
+                                <g id="pin-corporate" transform="translate(620, 180)" class="map-pin-group cursor-pointer" onclick="selectVenue('corporate')">
+                                    <circle cx="0" cy="0" r="18" fill="none" stroke="#D4AF37" stroke-width="2.5" class="pulse-gold-1 pin-pulse-element hidden" />
+                                    <circle cx="0" cy="0" r="18" fill="none" stroke="#D4AF37" stroke-width="1.5" class="pulse-gold-2 pin-pulse-element hidden" />
+                                    
+                                    <path d="M 0 0 C -8 -8, -12 -16, -12 -24 C -12 -32, -6 -38, 0 -38 C 6 -38, 12 -32, 12 -24 C 12 -16, 8 -8, 0 0 Z" fill="#D4AF37" />
+                                    <circle cx="0" cy="-24" r="8" fill="#FFFFFF" />
+                                    <rect x="-3" y="-28" width="6" height="8" fill="none" stroke="#D4AF37" stroke-width="0.8" />
+                                    <line x1="-3" y1="-24" x2="3" y2="-24" stroke="#D4AF37" stroke-width="0.5" />
+                                    <line x1="-3" y1="-22" x2="3" y2="-22" stroke="#D4AF37" stroke-width="0.5" />
+
+                                    <g transform="translate(0, -42)">
+                                        <rect x="-35" y="-14" width="70" height="14" rx="3" fill="#0A0A0E" opacity="0.9" stroke="#D4AF37" stroke-width="0.7" />
+                                        <text x="0" y="-4" fill="#FFFFFF" font-size="7" font-family="'Inter', sans-serif" font-weight="bold" text-anchor="middle">PLAZA TOWERS</text>
+                                    </g>
+                                </g>
+
+                                <!-- PIN: Private Soirées (260, 470) -->
+                                <g id="pin-private" transform="translate(260, 470)" class="map-pin-group cursor-pointer" onclick="selectVenue('private')">
+                                    <circle cx="0" cy="0" r="18" fill="none" stroke="#D4AF37" stroke-width="2.5" class="pulse-gold-1 pin-pulse-element hidden" />
+                                    <circle cx="0" cy="0" r="18" fill="none" stroke="#D4AF37" stroke-width="1.5" class="pulse-gold-2 pin-pulse-element hidden" />
+                                    
+                                    <path d="M 0 0 C -8 -8, -12 -16, -12 -24 C -12 -32, -6 -38, 0 -38 C 6 -38, 12 -32, 12 -24 C 12 -16, 8 -8, 0 0 Z" fill="#D4AF37" />
+                                    <circle cx="0" cy="-24" r="8" fill="#FFFFFF" />
+                                    <path d="M -3.5 -28 L 3.5 -28 L 3.5 -25 Q 3.5 -22, 0 -22 Q -3.5 -22, -3.5 -25 Z M 0 -22 L 0 -19 M -2.5 -19 L 2.5 -19" fill="none" stroke="#D4AF37" stroke-width="0.8" />
+
+                                    <g transform="translate(0, -42)">
+                                        <rect x="-35" y="-14" width="70" height="14" rx="3" fill="#0A0A0E" opacity="0.9" stroke="#D4AF37" stroke-width="0.7" />
+                                        <text x="0" y="-4" fill="#FFFFFF" font-size="7" font-family="'Inter', sans-serif" font-weight="bold" text-anchor="middle">PENTHOUSE GDNS</text>
+                                    </g>
+                                </g>
+
+                                <!-- PIN: Luxury Gatherings (640, 430) -->
+                                <g id="pin-luxury" transform="translate(640, 430)" class="map-pin-group cursor-pointer" onclick="selectVenue('luxury')">
+                                    <circle cx="0" cy="0" r="18" fill="none" stroke="#D4AF37" stroke-width="2.5" class="pulse-gold-1 pin-pulse-element hidden" />
+                                    <circle cx="0" cy="0" r="18" fill="none" stroke="#D4AF37" stroke-width="1.5" class="pulse-gold-2 pin-pulse-element hidden" />
+                                    
+                                    <path d="M 0 0 C -8 -8, -12 -16, -12 -24 C -12 -32, -6 -38, 0 -38 C 6 -38, 12 -32, 12 -24 C 12 -16, 8 -8, 0 0 Z" fill="#D4AF37" />
+                                    <circle cx="0" cy="-24" r="8" fill="#FFFFFF" />
+                                    <circle cx="0" cy="-26" r="2.5" fill="none" stroke="#D4AF37" stroke-width="0.8" />
+                                    <line x1="0" y1="-23.5" x2="0" y2="-19" stroke="#D4AF37" stroke-width="0.8" />
+                                    <line x1="-3.5" y1="-21.5" x2="3.5" y2="-21.5" stroke="#D4AF37" stroke-width="0.8" />
+                                    <path d="M -4 -20 Q 0 -16, 4 -20" fill="none" stroke="#D4AF37" stroke-width="0.8" />
+
+                                    <g transform="translate(0, -42)">
+                                        <rect x="-35" y="-14" width="70" height="14" rx="3" fill="#0A0A0E" opacity="0.9" stroke="#D4AF37" stroke-width="0.7" />
+                                        <text x="0" y="-4" fill="#FFFFFF" font-size="7" font-family="'Inter', sans-serif" font-weight="bold" text-anchor="middle">WATERFRONT MARINA</text>
+                                    </g>
+                                </g>
+
+                            </svg>
+
+                            <!-- Floating Glassmorphism Compass and Scale -->
+                            <div class="absolute bottom-6 right-6 glass-card px-4 py-3 rounded-xl flex items-center gap-3 text-gray-800 dark:text-white text-xs select-none">
+                                <div class="relative w-8.5 h-8.5 rounded-full border border-[#D4AF37]/30 flex items-center justify-center animate-[spin_20s_linear_infinite]">
+                                    <i class="fa-solid fa-compass text-[#D4AF37] text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="block font-bold tracking-widest text-[9px] text-[#D4AF37]">L'ARTISAN</span>
+                                    <span class="block text-[10px] text-gray-500 dark:text-gray-400">Scale: 1 in = 10 mi</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Extra Section 1: Business Hours & Availability -->
+        <section class="section-padding bg-gray-900 text-white border-y border-gray-800">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="w-full lg:w-1/2 text-center lg:text-left availability-info-col">
+                        <i class="fa-regular fa-calendar-check text-5xl text-primary mb-6 block mx-auto lg:!mx-0 w-fit"></i>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Availability & Lead Times</h2>
+                        <p class="text-gray-400 mb-6">To ensure the highest quality of artisanal sourcing and preparation, we operate on a strict booking schedule.</p>
+                        <ul class="space-y-4 text-left w-fit mx-auto lg:!mx-0">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-clock text-primary mt-1"></i>
+                                <div>
+                                    <strong class="block text-white">Small Boards & Boxes</strong>
+                                    <span class="text-sm text-gray-400">Minimum 48 hours notice required.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-clock text-primary mt-1"></i>
+                                <div>
+                                    <strong class="block text-white">Corporate Events & Grazing Tables</strong>
+                                    <span class="text-sm text-gray-400">Minimum 2 weeks notice required.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-clock text-primary mt-1"></i>
+                                <div>
+                                    <strong class="block text-white">Weddings</strong>
+                                    <span class="text-sm text-gray-400">Minimum 3 to 6 months notice highly recommended.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-full lg:w-1/2 bg-black/50 p-8 md:p-12 rounded-3xl border border-gray-800 shadow-2xl">
+                        <h3 class="text-2xl font-serif font-bold mb-6 text-center border-b border-gray-800 pb-4">Business Hours</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center text-gray-300">
+                                <span>Monday - Wednesday</span>
+                                <span class="font-bold text-white">9:00 AM - 5:00 PM</span>
+                            </div>
+                            <div class="flex justify-between items-center text-gray-300">
+                                <span>Thursday - Friday</span>
+                                <span class="font-bold text-white">9:00 AM - 7:00 PM</span>
+                            </div>
+                            <div class="flex justify-between items-center text-primary">
+                                <span>Saturday</span>
+                                <span class="font-bold">Events Only</span>
+                            </div>
+                            <div class="flex justify-between items-center text-primary">
+                                <span>Sunday</span>
+                                <span class="font-bold">Events Only</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Extra Section 2: Instagram Social Feed Mockup -->
+        <section class="section-padding bg-white dark:bg-gray-950">
+            <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-2">Join the Community</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Follow us on Instagram <a href="#" class="text-primary hover:underline">@lartisan_grazing</a></p>
+                </div>
+
+                <!-- Instagram Grid Mockup -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="relative group aspect-square rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 cursor-pointer">
+                        <img src="assets/images/contact/insta1.webp" alt="Rustic artisan cheese board" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 text-white">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-heart"></i> 245</span>
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-comment"></i> 18</span>
+                        </div>
+                    </div>
+                    <div class="relative group aspect-square rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 cursor-pointer">
+                        <img src="assets/images/contact/insta2.webp" alt="Overhead grazing table wedding" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 text-white">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-heart"></i> 412</span>
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-comment"></i> 32</span>
+                        </div>
+                    </div>
+                    <div class="relative group aspect-square rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 cursor-pointer">
+                        <img src="assets/images/contact/insta3.webp" alt="Charcuterie cone" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 text-white">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-heart"></i> 891</span>
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-comment"></i> 56</span>
+                        </div>
+                    </div>
+                    <div class="relative group aspect-square rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 cursor-pointer">
+                        <img src="assets/images/contact/insta4.webp" alt="Romantic charcuterie and wine" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 text-white">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-heart"></i> 156</span>
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-comment"></i> 9</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <a href="https://instagram.com" target="_blank" class="btn-primary inline-block"><i class="fa-brands fa-instagram mr-2"></i> Follow Us</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-black pt-16 pb-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-4">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-serif font-bold text-primary mb-4">
+                        <i class="fa-solid fa-cheese text-primary"></i> L'Artisan
+                    </a>
+                    <p class="text-primary font-serif italic mb-4">The Art of Grazing.</p>
+                    <p class="text-gray-600 dark:text-white text-sm mb-6">
+                        Crafting luxurious, edible masterpieces that bring people together and turn gatherings into unforgettable celebrations.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"><i class="fa-brands fa-x-twitter text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">About</a></li>
+                        <li><a href="gallery.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Gallery</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Events</a></li>
+                        <li><a href="pricing.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Pricing</a></li>
+                       
+                        <li><a href="contact.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Wedding Catering</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Corporate Events</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Birthday Parties</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Luxury Grazing Tables</a></li>
+                        <li><a href="wine-pairings.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Wine Pairings</a></li>
+                        <li><a href="catering.html" class="text-gray-600 dark:text-white hover:text-primary text-sm transition-colors">Private Chef Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Newsletter</h4>
+                    <p class="text-gray-600 dark:text-white text-sm mb-4">Subscribe to receive exclusive seasonal menus and pairing tips.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Email Address" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white text-sm rounded-md focus:ring-primary focus:border-primary block w-full p-2.5">
+                        <button type="button" class="btn-primary w-full text-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 dark:text-white">&copy; 2026 L'Artisan Catering. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-sm text-gray-500 dark:text-white hover:text-primary">Privacy Policy</a>
+                    <a href="#" class="text-sm text-gray-500 dark:text-white hover:text-primary">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Main JS -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Scripts for UI interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme & RTL Toggles
+            const mobileThemeToggle = document.getElementById('theme-toggle-mobile');
+            if(mobileThemeToggle) {
+                mobileThemeToggle.addEventListener('click', () => {
+                    document.getElementById('theme-toggle').click();
+                });
+            }
+            const mobileRtlToggle = document.getElementById('rtl-toggle-mobile');
+            if(mobileRtlToggle) {
+                mobileRtlToggle.addEventListener('click', () => {
+                    const rtlBtn = document.getElementById('rtl-toggle');
+                    if (rtlBtn) rtlBtn.click();
+                });
+            }
+
+            // Interactive Catering Venues Map Controller
+            let activeVenue = null;
+            const routes = {
+                wedding: document.getElementById('route-wedding'),
+                corporate: document.getElementById('route-corporate'),
+                private: document.getElementById('route-private'),
+                luxury: document.getElementById('route-luxury')
+            };
+            const pins = {
+                wedding: document.getElementById('pin-wedding'),
+                corporate: document.getElementById('pin-corporate'),
+                private: document.getElementById('pin-private'),
+                luxury: document.getElementById('pin-luxury')
+            };
+            const cards = {
+                wedding: document.getElementById('card-wedding'),
+                corporate: document.getElementById('card-corporate'),
+                private: document.getElementById('card-private'),
+                luxury: document.getElementById('card-luxury')
+            };
+
+            // Set path lengths for the stroke-dashoffset animation
+            Object.keys(routes).forEach(key => {
+                const path = routes[key];
+                if (path) {
+                    const length = path.getTotalLength();
+                    // Set the stroke-dasharray and stroke-dashoffset initially to path length (fully hidden)
+                    path.style.strokeDasharray = length;
+                    path.style.strokeDashoffset = length;
+                }
+            });
+
+            window.selectVenue = function(venueId) {
+                // Clear current active states
+                Object.keys(cards).forEach(key => {
+                    if (cards[key]) {
+                        cards[key].classList.remove('glass-card-active');
+                        cards[key].classList.add('glass-card');
+                    }
+                    if (routes[key]) {
+                        routes[key].style.strokeDashoffset = routes[key].getTotalLength();
+                        routes[key].classList.remove('active');
+                    }
+                    if (pins[key]) {
+                        pins[key].classList.remove('active');
+                        const pulseElements = pins[key].querySelectorAll('.pin-pulse-element');
+                        pulseElements.forEach(el => el.classList.add('hidden'));
+                    }
+                });
+
+                // Toggle logic
+                if (activeVenue === venueId) {
+                    activeVenue = null;
+                    return;
+                }
+
+                activeVenue = venueId;
+                const activeCard = cards[venueId];
+                const activeRoute = routes[venueId];
+                const activePin = pins[venueId];
+
+                if (activeCard) {
+                    activeCard.classList.remove('glass-card');
+                    activeCard.classList.add('glass-card-active');
+                    
+                    // Smooth scroll the sidebar card into view if it's on mobile/tablet view
+                    if (window.innerWidth < 1024) {
+                        activeCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                }
+                if (activeRoute) {
+                    activeRoute.style.strokeDashoffset = '0';
+                    activeRoute.classList.add('active');
+                }
+                if (activePin) {
+                    activePin.classList.add('active');
+                    const pulseElements = activePin.querySelectorAll('.pin-pulse-element');
+                    pulseElements.forEach(el => el.classList.remove('hidden'));
+                }
+            };
+
+            // Initialize with 'wedding' active on load for visual presentation
+            setTimeout(() => {
+                window.selectVenue('wedding');
+            }, 800);
+        });
+    </script>
+</body>
+</html>
