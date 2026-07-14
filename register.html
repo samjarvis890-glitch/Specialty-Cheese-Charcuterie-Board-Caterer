@@ -49,7 +49,7 @@
         <div class="absolute inset-0 z-0 bg-grid pointer-events-none"></div>
 
         <!-- Top Right Controls -->
-        <div class="absolute top-4 right-4 md:top-6 md:right-6 z-20 flex gap-3">
+        <div class="w-full max-w-[620px] flex justify-end gap-3 mb-4 md:absolute md:top-6 md:right-6 md:w-auto md:mb-0 z-20 relative">
             <button id="rtl-toggle" class="w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-sm text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors border border-gray-100 dark:border-gray-700">
                 <i class="fa-solid fa-right-left"></i>
             </button>
@@ -58,12 +58,6 @@
             </button>
         </div>
 
-        <!-- Go Back Home -->
-        <div class="absolute top-4 left-4 md:top-6 md:left-6 z-20">
-            <a href="index.html" class="w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-sm text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors border border-gray-100 dark:border-gray-700">
-                <i class="fa-solid fa-arrow-left"></i>
-            </a>
-        </div>
 
         <!-- Auth Card -->
         <div class="bg-white dark:bg-gray-900 rounded-[2rem] shadow-2xl w-full max-w-[620px] p-6 md:p-8 lg:p-10 relative z-10 border border-gray-100 dark:border-gray-800 my-auto">
@@ -103,8 +97,8 @@
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 lg:mb-1">Password</label>
                         <div class="relative">
-                            <input type="password" id="password" class="w-full px-4 py-3 lg:py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:text-white transition-colors pr-12" placeholder="Create a password" required>
-                            <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none" onclick="togglePassword('password')">
+                            <input type="password" id="password" class="w-full px-4 py-3 lg:py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:text-white transition-colors pr-12 rtl:pr-4 rtl:pl-12" placeholder="Create a password" required>
+                            <button type="button" class="absolute right-4 rtl:right-auto rtl:left-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none" onclick="togglePassword('password')">
                                 <i class="fa-regular fa-eye" id="password-eye"></i>
                             </button>
                         </div>
@@ -113,8 +107,8 @@
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 lg:mb-1">Confirm Password</label>
                         <div class="relative">
-                            <input type="password" id="confirm-password" class="w-full px-4 py-3 lg:py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:text-white transition-colors pr-12" placeholder="Repeat your password" required>
-                            <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none" onclick="togglePassword('confirm-password')">
+                            <input type="password" id="confirm-password" class="w-full px-4 py-3 lg:py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:text-white transition-colors pr-12 rtl:pr-4 rtl:pl-12" placeholder="Repeat your password" required>
+                            <button type="button" class="absolute right-4 rtl:right-auto rtl:left-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none" onclick="togglePassword('confirm-password')">
                                 <i class="fa-regular fa-eye" id="confirm-password-eye"></i>
                             </button>
                         </div>
